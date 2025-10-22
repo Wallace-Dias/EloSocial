@@ -1,173 +1,262 @@
 /* ============================
-   1. Variáveis do Design System
-============================ */
+   SISTEMA DE DESIGN
+   ============================ */
 :root {
-  /* Paleta de cores */
+  /* Cores */
   --cor-primaria: #3498db;
   --cor-secundaria: #2c3e50;
-  --cor-terciaria: #e74c3c;
-  --cor-quaternaria: #27ae60;
-  --cor-neutra-1: #ffffff;
-  --cor-neutra-2: #f5f5f5;
-  --cor-neutra-3: #cccccc;
-  --cor-neutra-4: #333333;
+  --cor-sucesso: #27ae60;
+  --cor-erro: #e74c3c;
+  --cor-aviso: #f1c40f;
+  --cor-fundo: #f8f9fa;
+  --cor-texto: #333;
+  --cor-neutra: #e0e0e0;
 
   /* Tipografia */
-  --fonte-titulo-xl: 2.5rem;
-  --fonte-titulo-lg: 2rem;
-  --fonte-titulo-md: 1.5rem;
+  --fonte-principal: 'Segoe UI', Roboto, sans-serif;
+  --fonte-titulo: 2rem;
+  --fonte-subtitulo: 1.5rem;
   --fonte-corpo: 1rem;
-  --fonte-pequena: 0.875rem;
+  --fonte-menor: 0.875rem;
+  --fonte-grande: 2.5rem;
 
-  /* Espaçamento modular */
-  --espacamento-xxs: 8px;
-  --espacamento-xs: 16px;
-  --espacamento-sm: 24px;
-  --espacamento-md: 32px;
-  --espacamento-lg: 48px;
-  --espacamento-xl: 64px;
+  /* Espaçamentos (escala modular 8px) */
+  --esp-1: 0.5rem;
+  --esp-2: 1rem;
+  --esp-3: 1.5rem;
+  --esp-4: 2rem;
+  --esp-5: 3rem;
+  --esp-6: 4rem;
 
   /* Bordas e sombras */
-  --border-radius: 8px;
-  --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1);
-  --sombra-media: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --radius: 8px;
+  --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================
-   2. Reset básico
-============================ */
+   RESET BÁSICO E GLOBAL
+   ============================ */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-principal);
+  font-size: var(--fonte-corpo);
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
 }
 
 /* ============================
-   3. Menu Horizontal
-============================ */
+   CABEÇALHO / MENU
+   ============================ */
 .menu-horizontal {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: var(--cor-secundaria);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--esp-2) var(--esp-3);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
+}
+
+.menu-horizontal h1 {
+  font-size: var(--fonte-subtitulo);
+  font-weight: 700;
 }
 
 .menu-lista {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  height: 60px;
+  gap: var(--esp-2);
 }
 
 .menu-link {
-  display: block;
-  padding: 1rem 1.5rem;
-  color: var(--cor-neutra-4);
-  text-decoration: none;
-  transition: all 0.3s ease;
+  color: white;
+  padding: var(--esp-1) var(--esp-2);
+  border-radius: var(--radius);
+  transition: background 0.3s ease;
 }
 
-.menu-link:hover {
-  color: var(--cor-primaria);
-  transform: translateY(-2px);
+.menu-link:hover,
+.menu-link:focus {
+  background: var(--cor-primaria);
+}
+
+/* Botão do menu (mobile) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* ============================
-   4. Botões
-============================ */
+   IMAGEM PRINCIPAL
+   ============================ */
+.imagem-principal {
+  text-align: center;
+  margin: var(--esp-4) auto;
+  padding: 0 var(--esp-2);
+}
+
+/* ============================
+   CONTEÚDO PRINCIPAL
+   ============================ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--esp-3);
+}
+
+.conteudo-principal h1 {
+  font-size: var(--fonte-grande);
+  color: var(--cor-secundaria);
+  margin-bottom: var(--esp-2);
+}
+
+.conteudo-principal h2 {
+  font-size: var(--fonte-subtitulo);
+  color: var(--cor-secundaria);
+  margin-top: var(--esp-3);
+  margin-bottom: var(--esp-1);
+}
+
+.conteudo-principal p {
+  margin-bottom: var(--esp-2);
+}
+
+/* Lista de contatos */
+.contato-info {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  padding: var(--esp-3);
+}
+
+.contato-info li {
+  margin-bottom: var(--esp-1);
+}
+
+/* ============================
+   RODAPÉ
+   ============================ */
+.rodape {
+  background: var(--cor-secundaria);
+  color: white;
+  text-align: center;
+  padding: var(--esp-3);
+  margin-top: var(--esp-5);
+  font-size: var(--fonte-menor);
+}
+
+/* ============================
+   BOTÕES PADRÃO
+   ============================ */
+.botao {
+  display: inline-block;
+  padding: var(--esp-1) var(--esp-2);
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 .botao-primario {
   background: var(--cor-primaria);
-  color: var(--cor-neutra-1);
-  border-radius: var(--border-radius);
-  padding: var(--espacamento-xs) var(--espacamento-md);
-  box-shadow: var(--sombra-suave);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  color: white;
 }
 
 .botao-primario:hover {
+  background: #2980b9;
   transform: translateY(-2px);
-  box-shadow: var(--sombra-media);
+  box-shadow: var(--sombra);
 }
 
 /* ============================
-   5. Card de Projeto
-============================ */
-.card {
-  background: var(--cor-neutra-1);
-  border-radius: var(--border-radius);
-  box-shadow: var(--sombra-suave);
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--sombra-media);
-}
-
-.card__imagem img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card__conteudo {
-  padding: var(--espacamento-md);
-}
-
-.card__titulo {
-  font-size: var(--fonte-titulo-md);
-  font-weight: 600;
-  margin-bottom: var(--espacamento-xxs);
-}
-
-.card__descricao {
-  font-size: var(--fonte-corpo);
-  color: var(--cor-neutra-4);
+   GRID E FLEX
+   ============================ */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--esp-3);
 }
 
 /* ============================
-   6. Formulário
-============================ */
-.formulario {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: var(--espacamento-lg);
-  background: var(--cor-neutra-1);
-  border-radius: var(--border-radius);
-  box-shadow: var(--sombra-suave);
-}
+   RESPONSIVIDADE
+   ============================ */
 
-.campo-entrada {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid var(--cor-neutra-3);
-  border-radius: var(--border-radius);
-  font-size: var(--fonte-corpo);
-  margin-bottom: var(--espacamento-sm);
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.campo-entrada:focus {
-  border-color: var(--cor-primaria);
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-}
-
-/* ============================
-   7. Responsividade
-============================ */
-@media (max-width: 768px) {
-  .menu-lista {
-    flex-direction: column;
-    height: auto;
+/* Tablets */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
   }
 
-  .card {
-    margin-bottom: var(--espacamento-md);
+  .menu-lista {
+    display: flex;
+  }
+
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagem-principal {
+    margin: var(--esp-5) auto;
+  }
+}
+
+/* Desktops grandes */
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .conteudo-principal {
+    grid-column: span 3;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .menu-lista {
+    display: none;
+    flex-direction: column;
+    background: var(--cor-secundaria);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 60%;
+    padding: var(--esp-2);
+    box-shadow: var(--sombra);
+  }
+
+  .menu-lista.ativo {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 }
