@@ -1,0 +1,173 @@
+/* ============================
+   1. Variáveis do Design System
+============================ */
+:root {
+  /* Paleta de cores */
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2c3e50;
+  --cor-terciaria: #e74c3c;
+  --cor-quaternaria: #27ae60;
+  --cor-neutra-1: #ffffff;
+  --cor-neutra-2: #f5f5f5;
+  --cor-neutra-3: #cccccc;
+  --cor-neutra-4: #333333;
+
+  /* Tipografia */
+  --fonte-titulo-xl: 2.5rem;
+  --fonte-titulo-lg: 2rem;
+  --fonte-titulo-md: 1.5rem;
+  --fonte-corpo: 1rem;
+  --fonte-pequena: 0.875rem;
+
+  /* Espaçamento modular */
+  --espacamento-xxs: 8px;
+  --espacamento-xs: 16px;
+  --espacamento-sm: 24px;
+  --espacamento-md: 32px;
+  --espacamento-lg: 48px;
+  --espacamento-xl: 64px;
+
+  /* Bordas e sombras */
+  --border-radius: 8px;
+  --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --sombra-media: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================
+   2. Reset básico
+============================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ============================
+   3. Menu Horizontal
+============================ */
+.menu-horizontal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-lista {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  height: 60px;
+}
+
+.menu-link {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--cor-neutra-4);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  color: var(--cor-primaria);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   4. Botões
+============================ */
+.botao-primario {
+  background: var(--cor-primaria);
+  color: var(--cor-neutra-1);
+  border-radius: var(--border-radius);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.botao-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+/* ============================
+   5. Card de Projeto
+============================ */
+.card {
+  background: var(--cor-neutra-1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-suave);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-media);
+}
+
+.card__imagem img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card__conteudo {
+  padding: var(--espacamento-md);
+}
+
+.card__titulo {
+  font-size: var(--fonte-titulo-md);
+  font-weight: 600;
+  margin-bottom: var(--espacamento-xxs);
+}
+
+.card__descricao {
+  font-size: var(--fonte-corpo);
+  color: var(--cor-neutra-4);
+}
+
+/* ============================
+   6. Formulário
+============================ */
+.formulario {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--espacamento-lg);
+  background: var(--cor-neutra-1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-suave);
+}
+
+.campo-entrada {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--cor-neutra-3);
+  border-radius: var(--border-radius);
+  font-size: var(--fonte-corpo);
+  margin-bottom: var(--espacamento-sm);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.campo-entrada:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ============================
+   7. Responsividade
+============================ */
+@media (max-width: 768px) {
+  .menu-lista {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .card {
+    margin-bottom: var(--espacamento-md);
+  }
+}
