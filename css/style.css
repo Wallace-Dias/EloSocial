@@ -1,41 +1,24 @@
-/* ============================
-   SISTEMA DE DESIGN
-   ============================ */
+/* =====================
+   VARIÁVEIS CSS
+===================== */
 :root {
-  /* Cores */
-  --cor-primaria: #3498db;
-  --cor-secundaria: #2c3e50;
-  --cor-sucesso: #27ae60;
-  --cor-erro: #e74c3c;
-  --cor-aviso: #f1c40f;
-  --cor-fundo: #f8f9fa;
-  --cor-texto: #333;
-  --cor-neutra: #e0e0e0;
+  --cor-primaria: #7b1e3d; /* vinho escuro */
+  --cor-secundaria: #c94c6f; /* vinho claro */
+  --cor-neutra-clara: #f8f8f8;
+  --cor-neutra-escura: #333333;
+  --cor-rodape: #2c1a26;
 
-  /* Tipografia */
-  --fonte-principal: 'Segoe UI', Roboto, sans-serif;
-  --fonte-titulo: 2rem;
-  --fonte-subtitulo: 1.5rem;
-  --fonte-corpo: 1rem;
-  --fonte-menor: 0.875rem;
-  --fonte-grande: 2.5rem;
-
-  /* Espaçamentos (escala modular 8px) */
-  --esp-1: 0.5rem;
-  --esp-2: 1rem;
-  --esp-3: 1.5rem;
-  --esp-4: 2rem;
-  --esp-5: 3rem;
-  --esp-6: 4rem;
-
-  /* Bordas e sombras */
-  --radius: 8px;
-  --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --font-principal: 'Arial', sans-serif;
+  --espacamento-pequeno: 8px;
+  --espacamento-medio: 16px;
+  --espacamento-grande: 32px;
+  --border-radius: 8px;
+  --sombra-suave: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* ============================
-   RESET BÁSICO E GLOBAL
-   ============================ */
+/* =====================
+   RESET E BASE
+===================== */
 * {
   margin: 0;
   padding: 0;
@@ -43,220 +26,242 @@
 }
 
 body {
-  font-family: var(--fonte-principal);
-  font-size: var(--fonte-corpo);
-  color: var(--cor-texto);
-  background-color: var(--cor-fundo);
+  font-family: var(--font-principal);
+  color: var(--cor-neutra-escura);
+  background-color: var(--cor-neutra-clara);
   line-height: 1.6;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
-
-/* ============================
-   CABEÇALHO / MENU
-   ============================ */
-.menu-horizontal {
-  background: var(--cor-secundaria);
-  color: white;
+/* =====================
+   HEADER / MENU
+===================== */
+header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: var(--esp-2) var(--esp-3);
+  align-items: center;
+  padding: var(--espacamento-medio) var(--espacamento-grande);
+  background-color: var(--cor-primaria);
+  color: white;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.menu-horizontal h1 {
-  font-size: var(--fonte-subtitulo);
-  font-weight: 700;
+header h1 a {
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.menu-lista {
+nav ul {
   display: flex;
-  gap: var(--esp-2);
+  list-style: none;
+  gap: var(--espacamento-medio);
+  position: relative;
 }
 
-.menu-link {
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
   color: white;
-  padding: var(--esp-1) var(--esp-2);
-  border-radius: var(--radius);
-  transition: background 0.3s ease;
+  text-decoration: none;
+  font-weight: 600;
+  padding: var(--espacamento-pequeno) var(--espacamento-medio);
+  transition: color 0.3s ease;
 }
 
-.menu-link:hover,
-.menu-link:focus {
-  background: var(--cor-primaria);
+nav ul li a:hover {
+  color: var(--cor-secundaria);
 }
 
-/* Botão do menu (mobile) */
-.menu-toggle {
+/* Submenu */
+nav ul li .submenu {
   display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--cor-primaria);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+nav ul li:hover .submenu {
+  display: block;
+  flex-direction: column;
+}
+
+nav ul li .submenu li a {
+  display: block;
+  padding: var(--espacamento-pequeno) var(--espacamento-medio);
+}
+
+/* Hamburger menu */
+#menu-toggle {
+  display: none;
+}
+
+.menu-hamburguer {
+  display: none;
+  font-size: 2rem;
   cursor: pointer;
 }
 
-/* ============================
+/* =====================
    IMAGEM PRINCIPAL
-   ============================ */
-.imagem-principal {
-  text-align: center;
-  margin: var(--esp-4) auto;
-  padding: 0 var(--esp-2);
+===================== */
+div picture {
+  display: flex;
+  justify-content: center;
+  margin: var(--espacamento-grande) 0;
 }
 
-/* ============================
-   CONTEÚDO PRINCIPAL
-   ============================ */
-.container {
-  width: 100%;
+div picture img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+/* =====================
+   CONTEÚDO PRINCIPAL / CARDS
+===================== */
+main {
+  padding: 0 var(--espacamento-grande);
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--esp-3);
 }
 
-.conteudo-principal h1 {
-  font-size: var(--fonte-grande);
-  color: var(--cor-secundaria);
-  margin-bottom: var(--esp-2);
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espacamento-grande);
+  margin: var(--espacamento-grande) 0;
 }
 
-.conteudo-principal h2 {
-  font-size: var(--fonte-subtitulo);
-  color: var(--cor-secundaria);
-  margin-top: var(--esp-3);
-  margin-bottom: var(--esp-1);
+.card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-suave);
+  padding: var(--espacamento-grande);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.conteudo-principal p {
-  margin-bottom: var(--esp-2);
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Lista de contatos */
-.contato-info {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--sombra);
-  padding: var(--esp-3);
+.card h1, .card h2 {
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-medio);
 }
 
-.contato-info li {
-  margin-bottom: var(--esp-1);
+.card p {
+  color: var(--cor-neutra-escura);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--espacamento-medio);
 }
 
-/* ============================
-   RODAPÉ
-   ============================ */
-.rodape {
-  background: var(--cor-secundaria);
+/* Botões */
+button.primario {
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
   color: white;
-  text-align: center;
-  padding: var(--esp-3);
-  margin-top: var(--esp-5);
-  font-size: var(--fonte-menor);
-}
-
-/* ============================
-   BOTÕES PADRÃO
-   ============================ */
-.botao {
-  display: inline-block;
-  padding: var(--esp-1) var(--esp-2);
   border: none;
-  border-radius: var(--radius);
+  border-radius: var(--border-radius);
+  padding: var(--espacamento-pequeno) var(--espacamento-medio);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.botao-primario {
-  background: var(--cor-primaria);
-  color: white;
-}
-
-.botao-primario:hover {
-  background: #2980b9;
+button.primario:hover {
   transform: translateY(-2px);
-  box-shadow: var(--sombra);
+  box-shadow: 0 6px 15px rgba(123,30,61,0.4);
 }
 
-/* ============================
-   GRID E FLEX
-   ============================ */
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--esp-3);
+/* =====================
+   FORMULÁRIOS
+===================== */
+form {
+  max-width: 500px;
+  margin: var(--espacamento-grande) auto;
+  background: white;
+  padding: var(--espacamento-grande);
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-suave);
 }
 
-/* ============================
+input, textarea, select {
+  width: 100%;
+  padding: var(--espacamento-medio);
+  margin-bottom: var(--espacamento-medio);
+  border: 2px solid #e0e0e0;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(201,76,111,0.2);
+}
+
+/* =====================
+   RODAPÉ
+===================== */
+footer {
+  background-color: var(--cor-rodape);
+  color: white;
+  text-align: center;
+  padding: var(--espacamento-grande) var(--espacamento-medio);
+}
+
+footer p {
+  margin-bottom: var(--espacamento-pequeno);
+  font-size: 0.9rem;
+}
+
+/* =====================
    RESPONSIVIDADE
-   ============================ */
-
-/* Tablets */
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .menu-lista {
-    display: flex;
-  }
-
-  main {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .imagem-principal {
-    margin: var(--esp-5) auto;
+===================== */
+@media (max-width: 1024px) {
+  nav ul {
+    gap: var(--espacamento-pequeno);
   }
 }
 
-/* Desktops grandes */
-@media (min-width: 1024px) {
-  main {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .conteudo-principal {
-    grid-column: span 3;
-  }
-}
-
-/* Mobile */
-@media (max-width: 767px) {
-  .menu-lista {
-    display: none;
+@media (max-width: 768px) {
+  header {
     flex-direction: column;
-    background: var(--cor-secundaria);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 60%;
-    padding: var(--esp-2);
-    box-shadow: var(--sombra);
+    gap: var(--espacamento-pequeno);
   }
 
-  .menu-lista.ativo {
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li .submenu {
+    position: relative;
+  }
+
+  #menu-toggle:checked + .menu-hamburguer + nav ul {
     display: flex;
   }
 
-  .menu-toggle {
+  .menu-hamburguer {
     display: block;
+    color: white;
   }
 }

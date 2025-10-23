@@ -8,59 +8,65 @@
 </head>
 <body>
   <!-- CABEÇALHO / MENU -->
-  <header class="menu-horizontal">
-    <h1 id="cabecalho-principal">EloSocial</h1>
-    <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
-    <nav aria-label="Menu principal">
-      <ul class="menu-lista">
-        <li><a class="menu-link" href="index.html">Início</a></li>
-        <li><a class="menu-link" href="projetos.html">Projetos</a></li>
-        <li><a class="menu-link" href="cadastro.html">Cadastro</a></li>
+  <header>
+    <h1><a href="index.html">EloSocial</a></h1>
+
+    <!-- Checkbox para menu mobile -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-hamburguer">&#9776;</label>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="projetos.html">Projetos</a>
+          <ul class="submenu">
+            <li><a href="projetos.html#atuais">Atuais</a></li>
+            <li><a href="projetos.html#passados">Passados</a></li>
+          </ul>
+        </li>
+        <li><a href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- IMAGEM PRINCIPAL -->
-  <section class="imagem-principal">
+  <div>
     <picture>
       <source srcset="img/inicio.webp" type="image/webp">
       <source srcset="img/inicio.png" type="image/png">
       <img src="img/inicio.png" alt="Voluntários ajudando em um projeto social" width="600" loading="lazy">
     </picture>
-  </section>
+  </div>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main class="conteudo-principal container">
-    <h1>Bem-vindo à EloSocial</h1>
-    <p>
-      A EloSocial é uma plataforma criada para unir pessoas, empresas e organizações do terceiro setor em prol de causas sociais.
-      Nosso objetivo é facilitar a conexão entre ONGs, voluntários e doadores, promovendo a colaboração e o impacto positivo nas comunidades.
-    </p>
+  <main>
+    <div class="card-container">
+      <div class="card">
+        <h1>Bem-vindo à EloSocial</h1>
+        <p>A EloSocial é uma plataforma criada para unir pessoas, empresas e organizações do terceiro setor em prol de causas sociais. Nosso objetivo é facilitar a conexão entre ONGs, voluntários e doadores, promovendo a colaboração e o impacto positivo nas comunidades.</p>
+        <button class="primario">Saiba Mais</button>
+      </div>
 
-    <h2>O que fazemos</h2>
-    <p>
-      Através da nossa plataforma, ONGs podem divulgar seus projetos, buscar apoio e alcançar mais visibilidade.
-      Voluntários e doadores podem descobrir iniciativas próximas, contribuir com tempo, recursos ou conhecimento,
-      e acompanhar o progresso das ações sociais.
-    </p>
+      <div class="card">
+        <h2>O que fazemos</h2>
+        <p>Através da nossa plataforma, ONGs podem divulgar seus projetos, buscar apoio e alcançar mais visibilidade. Voluntários e doadores podem descobrir iniciativas próximas, contribuir com tempo, recursos ou conhecimento, e acompanhar o progresso das ações sociais.</p>
+        <button class="primario">Ver Projetos</button>
+      </div>
 
-    <h2>Quem somos</h2>
-    <p>
-      Somos uma equipe apaixonada por transformação social e tecnologia. Acreditamos que o trabalho em rede é a chave para mudar o mundo.
-      Por isso, desenvolvemos a EloSocial: um espaço digital que fortalece projetos solidários e aproxima quem quer ajudar de quem precisa de ajuda.
-    </p>
-
-    <h2 id="contato">Contato</h2>
-    <ul class="contato-info">
-      <li><strong>Email:</strong> contato@elosocial.org</li>
-      <li><strong>Telefone:</strong> (11) 98765-4321</li>
-      <li><strong>Endereço:</strong> Rua das Flores, 120 - São Paulo, SP</li>
-      <li><strong>Horário de atendimento:</strong> Segunda a sexta, das 9h às 18h</li>
-    </ul>
+      <div class="card">
+        <h2>Contato</h2>
+        <p><strong>Email:</strong> contato@elosocial.org</p>
+        <p><strong>Telefone:</strong> (11) 98765-4321</p>
+        <p><strong>Endereço:</strong> Rua das Flores, 120 - São Paulo, SP</p>
+        <p><strong>Horário de atendimento:</strong> Segunda a sexta, das 9h às 18h</p>
+        <button class="primario">Fale Conosco</button>
+      </div>
+    </div>
   </main>
 
   <!-- RODAPÉ -->
-  <footer class="rodape">
+  <footer>
     <p>&copy; 2025 EloSocial - Todos os direitos reservados</p>
     <p>Email: contato@elosocial.org | Tel: (11) 98765-4321</p>
     <p>Rua das Flores, 120 - São Paulo/SP</p>
