@@ -4,80 +4,157 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projetos | EloSocial</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- CABEÇALHO / MENU -->
+  <!-- ======================================================
+       CABEÇALHO / MENU DE NAVEGAÇÃO
+  ======================================================= -->
   <header>
-    <h1>EloSocial</h1>
+    <h1><a href="index.html">EloSocial</a></h1>
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="projetos.html" class="active">Projetos</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main>
-    <h2>Nossos Projetos e Parcerias</h2>
-    <p>A EloSocial conecta diversas ONGs e iniciativas que promovem impacto social, ambiental e educacional. Conheça alguns projetos que fazem parte da nossa rede de solidariedade:</p>
+  <!-- ======================================================
+       SEÇÃO DE INTRODUÇÃO / APRESENTAÇÃO DOS PROJETOS
+  ======================================================= -->
+  <main class="pagina-projetos">
 
-    <!-- PROJETO 1 -->
-    <section>
-      <h3>🌱 Projeto Sementes do Amanhã</h3>
-      <picture>
-        <source srcset="img/projeto1.webp" type="image/webp">
-        <source srcset="img/projeto1.png" type="image/png">
-        <img src="img/projeto1.png" alt="Crianças aprendendo sobre jardinagem e reciclagem" width="300" loading="lazy">
-      </picture>
-      <p>Voltado à educação ambiental de crianças em comunidades carentes. Ensina práticas de reciclagem, jardinagem e cuidado com o meio ambiente.</p>
-      <p><strong>Local:</strong> Recife, PE</p>
-      <p><strong>Atuação:</strong> Educação e Sustentabilidade</p>
-      <p><strong>Contato:</strong> sementes@elosocial.org</p>
+    <section class="intro">
+      <h2>Nossos Projetos e Parcerias</h2>
+      <p>
+        A <strong>EloSocial</strong> acredita que o verdadeiro impacto social nasce da colaboração entre pessoas que querem mudar o mundo.  
+        Aqui, reunimos projetos que unem educação, tecnologia, sustentabilidade e empatia.  
+        Conheça nossas iniciativas e veja como você pode participar dessa transformação.
+      </p>
     </section>
 
-    <hr>
-
-    <!-- PROJETO 2 -->
-    <section>
-      <h3>🤝 Laços de Esperança</h3>
-      <picture>
-        <source srcset="img/projeto2.webp" type="image/webp">
-        <source srcset="img/projeto2.png" type="image/png">
-        <img src="img/projeto2.png" alt="Entrega de cestas básicas e oficinas de capacitação" width="300" loading="lazy">
-      </picture>
-      <p>Projeto que fornece cestas básicas, apoio psicológico e oficinas de capacitação profissional para famílias em situação de vulnerabilidade.</p>
-      <p><strong>Local:</strong> São Paulo, SP</p>
-      <p><strong>Atuação:</strong> Inclusão Social</p>
-      <p><strong>Contato:</strong> lacos@elosocial.org</p>
+    <!-- ======================================================
+         SEÇÃO DE FILTROS OU CHAMADA PARA AÇÃO
+    ======================================================= -->
+    <section class="filtro-projetos">
+      <h3>Encontre um projeto que combine com você</h3>
+      <p>Filtre por categoria ou região e descubra onde sua ajuda faz a diferença.</p>
+      <div class="filtro-container">
+        <select name="categoria" id="categoria">
+          <option value="">Selecione uma categoria</option>
+          <option value="educacao">Educação</option>
+          <option value="sustentabilidade">Sustentabilidade</option>
+          <option value="inclusao">Inclusão Social</option>
+          <option value="tecnologia">Tecnologia</option>
+        </select>
+        <select name="estado" id="estado">
+          <option value="">Estado</option>
+          <option value="sp">São Paulo</option>
+          <option value="mg">Minas Gerais</option>
+          <option value="pe">Pernambuco</option>
+          <option value="rj">Rio de Janeiro</option>
+        </select>
+        <button class="btn-destaque">Buscar</button>
+      </div>
     </section>
 
-    <hr>
+    <!-- ======================================================
+         LISTAGEM DE PROJETOS / CARDS
+    ======================================================= -->
+    <div class="card-container">
 
-    <!-- PROJETO 3 -->
-    <section>
-      <h3>💻 Tech para Todos</h3>
-      <picture>
-        <source srcset="img/projeto3.webp" type="image/webp">
-        <source srcset="img/projeto3.png" type="image/png">
-        <img src="img/projeto3.png" alt="Curso de informática e programação para jovens e adultos" width="300" loading="lazy">
-      </picture>
-      <p>Iniciativa que promove inclusão digital oferecendo cursos gratuitos de informática, programação e robótica para jovens e adultos.</p>
-      <p><strong>Local:</strong> Belo Horizonte, MG</p>
-      <p><strong>Atuação:</strong> Educação e Tecnologia</p>
-      <p><strong>Contato:</strong> tech@elosocial.org</p>
-    </section>
+      <!-- PROJETO 1 -->
+      <section class="card project-card">
+        <h3>Projeto Sementes do Amanhã</h3>
+        <picture>
+          <source srcset="img/projeto1.webp" type="image/webp">
+          <source srcset="img/projeto1.png" type="image/png">
+          <img src="img/projeto1.png" alt="Crianças aprendendo sobre jardinagem e reciclagem" width="300" loading="lazy">
+        </picture>
+        <p>
+          Voltado à educação ambiental de crianças em comunidades carentes, o projeto ensina práticas de reciclagem, jardinagem e cuidado com o meio ambiente.  
+          Mais de 500 alunos já participaram das oficinas e desenvolveram suas próprias hortas comunitárias.
+        </p>
+        <p><strong>Local:</strong> Recife, PE</p>
+        <p><strong>Atuação:</strong> Educação e Sustentabilidade</p>
+        <p><strong>Contato:</strong> sementes@elosocial.org</p>
+        <a href="#" class="btn-saiba-mais">Saiba Mais</a>
+      </section>
 
-    <hr>
+      <!-- PROJETO 2 -->
+      <section class="card project-card">
+        <h3>Laços de Esperança</h3>
+        <picture>
+          <source srcset="img/projeto2.webp" type="image/webp">
+          <source srcset="img/projeto2.png" type="image/png">
+          <img src="img/projeto2.png" alt="Entrega de cestas básicas e oficinas de capacitação" width="300" loading="lazy">
+        </picture>
+        <p>
+          Este projeto oferece apoio direto a famílias em situação de vulnerabilidade.  
+          Além das cestas básicas, o grupo promove rodas de conversa, apoio psicológico e oficinas de capacitação para geração de renda.  
+          A iniciativa já impactou mais de 800 famílias desde 2023.
+        </p>
+        <p><strong>Local:</strong> São Paulo, SP</p>
+        <p><strong>Atuação:</strong> Inclusão Social</p>
+        <p><strong>Contato:</strong> lacos@elosocial.org</p>
+        <a href="#" class="btn-saiba-mais">Saiba Mais</a>
+      </section>
 
-    <section>
+      <!-- PROJETO 3 -->
+      <section class="card project-card">
+        <h3>Tech para Todos</h3>
+        <picture>
+          <source srcset="img/projeto3.webp" type="image/webp">
+          <source srcset="img/projeto3.png" type="image/png">
+          <img src="img/projeto3.png" alt="Curso de informática e programação para jovens e adultos" width="300" loading="lazy">
+        </picture>
+        <p>
+          O “Tech para Todos” leva inclusão digital a comunidades de baixa renda com aulas gratuitas de informática, robótica e programação.  
+          O foco é preparar jovens e adultos para o mercado de trabalho digital, incentivando o aprendizado contínuo e o trabalho colaborativo.
+        </p>
+        <p><strong>Local:</strong> Belo Horizonte, MG</p>
+        <p><strong>Atuação:</strong> Educação e Tecnologia</p>
+        <p><strong>Contato:</strong> tech@elosocial.org</p>
+        <a href="#" class="btn-saiba-mais">Saiba Mais</a>
+      </section>
+
+    </div>
+
+    <!-- ======================================================
+         SEÇÃO DE CHAMADA FINAL / ENVOLVIMENTO
+    ======================================================= -->
+    <section class="como-ajudar">
       <h3>Como Ajudar?</h3>
-      <p>Você pode apoiar esses e outros projetos cadastrando-se como <a href="cadastro.html">voluntário</a> ou realizando uma doação para fortalecer as ações sociais em todo o Brasil.</p>
+      <p>
+        Toda ajuda importa — seja seu tempo, conhecimento ou um pequeno valor doado.  
+        Cadastre-se como <a href="cadastro.html" class="link-destaque">voluntário</a>, compartilhe nossos projetos nas redes sociais  
+        ou contribua financeiramente para manter vivas as iniciativas que transformam realidades.
+      </p>
+      <a href="cadastro.html" class="btn-destaque">Quero Participar</a>
     </section>
+
+    <!-- ======================================================
+         DEPOIMENTOS / HISTÓRIAS DE IMPACTO
+    ======================================================= -->
+    <section class="depoimentos">
+      <h3>Histórias que Inspiram</h3>
+      <p>
+        “Graças ao projeto Tech para Todos, consegui meu primeiro emprego na área de TI! Hoje sou monitora voluntária e ensino outras pessoas.”  
+        <br><em>— Ana Luiza, 22 anos, BH</em>
+      </p>
+      <p>
+        “Antes do Laços de Esperança, eu estava sem perspectiva. Aprendi a costurar e hoje tenho minha pequena renda com artesanato.”  
+        <br><em>— Dona Celina, 54 anos, SP</em>
+      </p>
+    </section>
+
   </main>
 
-  <!-- RODAPÉ -->
+  <!-- ======================================================
+       RODAPÉ
+  ======================================================= -->
   <footer>
     <p>&copy; 2025 EloSocial - Todos os direitos reservados</p>
     <p>Email: contato@elosocial.org | Tel: (11) 98765-4321</p>

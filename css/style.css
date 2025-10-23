@@ -1,24 +1,30 @@
-/* =====================
-   VARIÁVEIS CSS
-===================== */
+/* ============================================================
+   VARIÁVEIS GLOBAIS
+   ------------------------------------------------------------
+   Centraliza todas as cores, espaçamentos e estilos padrões.
+============================================================ */
 :root {
-  --cor-primaria: #7b1e3d; /* vinho escuro */
-  --cor-secundaria: #c94c6f; /* vinho claro */
+  --cor-primaria: #7b1e3d;        /* vinho escuro */
+  --cor-secundaria: #c94c6f;      /* vinho claro */
   --cor-neutra-clara: #f8f8f8;
   --cor-neutra-escura: #333333;
   --cor-rodape: #2c1a26;
 
   --font-principal: 'Arial', sans-serif;
+
   --espacamento-pequeno: 8px;
   --espacamento-medio: 16px;
   --espacamento-grande: 32px;
+
   --border-radius: 8px;
   --sombra-suave: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* =====================
-   RESET E BASE
-===================== */
+/* ============================================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   ------------------------------------------------------------
+   Remove margens/paddings padrão e define fontes e cores base.
+============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -32,9 +38,11 @@ body {
   line-height: 1.6;
 }
 
-/* =====================
-   HEADER / MENU
-===================== */
+/* ============================================================
+   CABEÇALHO / MENU DE NAVEGAÇÃO
+   ------------------------------------------------------------
+   Inclui o título, links e comportamento responsivo do menu.
+============================================================ */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,6 +55,7 @@ header {
   z-index: 1000;
 }
 
+/* Logo / Título */
 header h1 a {
   text-decoration: none;
   color: white;
@@ -54,6 +63,7 @@ header h1 a {
   font-weight: bold;
 }
 
+/* Lista de links */
 nav ul {
   display: flex;
   list-style: none;
@@ -65,6 +75,7 @@ nav ul li {
   position: relative;
 }
 
+/* Estilo dos links */
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -77,30 +88,12 @@ nav ul li a:hover {
   color: var(--cor-secundaria);
 }
 
-/* Submenu */
+/* Submenu (removido visualmente, mas deixado para compatibilidade futura) */
 nav ul li .submenu {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--cor-primaria);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  min-width: 180px;
-  z-index: 1000;
 }
 
-nav ul li:hover .submenu {
-  display: block;
-  flex-direction: column;
-}
-
-nav ul li .submenu li a {
-  display: block;
-  padding: var(--espacamento-pequeno) var(--espacamento-medio);
-}
-
-/* Hamburger menu */
+/* Menu responsivo (hambúrguer) */
 #menu-toggle {
   display: none;
 }
@@ -111,24 +104,75 @@ nav ul li .submenu li a {
   cursor: pointer;
 }
 
-/* =====================
-   IMAGEM PRINCIPAL
-===================== */
-div picture {
+/* ============================================================
+   HERO (SEÇÃO PRINCIPAL DO INDEX)
+   ------------------------------------------------------------
+   Grande destaque visual com imagem e botões de ação.
+============================================================ */
+.hero {
   display: flex;
-  justify-content: center;
-  margin: var(--espacamento-grande) 0;
-}
-
-div picture img {
-  max-width: 100%;
-  height: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px var(--espacamento-grande);
+  background: linear-gradient(to right, rgba(123,30,61,0.8), rgba(201,76,111,0.8)), 
+              url('../img/inicio.png') no-repeat center/cover;
+  color: white;
+  gap: var(--espacamento-grande);
+  flex-wrap: wrap;
   border-radius: var(--border-radius);
 }
 
-/* =====================
-   CONTEÚDO PRINCIPAL / CARDS
-===================== */
+.hero-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+/* Títulos e parágrafos */
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: var(--espacamento-medio);
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  margin-bottom: var(--espacamento-medio);
+  line-height: 1.6;
+}
+
+/* Botões da seção hero */
+.hero-text a {
+  margin-right: var(--espacamento-medio);
+  display: inline-block;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  color: white;
+  text-decoration: none;
+  padding: var(--espacamento-pequeno) var(--espacamento-medio);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.hero-text a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(123,30,61,0.5);
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: var(--sombra-suave);
+}
+
+/* ============================================================
+   CARDS (MISSÃO / O QUE FAZEMOS / COMO AJUDAR)
+============================================================ */
 main {
   padding: 0 var(--espacamento-grande);
   max-width: 1200px;
@@ -137,7 +181,7 @@ main {
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--espacamento-grande);
   margin: var(--espacamento-grande) 0;
 }
@@ -151,8 +195,8 @@ main {
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .card h1, .card h2 {
@@ -167,7 +211,7 @@ main {
   margin-bottom: var(--espacamento-medio);
 }
 
-/* Botões */
+/* Botões genéricos */
 button.primario {
   background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
   color: white;
@@ -184,37 +228,98 @@ button.primario:hover {
   box-shadow: 0 6px 15px rgba(123,30,61,0.4);
 }
 
-/* =====================
-   FORMULÁRIOS
-===================== */
+/* ============================================================
+   SEÇÃO DE ONGs EM DESTAQUE
+============================================================ */
+.featured-ongs {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.featured-ongs h2 {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-grande);
+}
+
+.featured-ongs .card-container .card {
+  text-align: center;
+}
+
+/* ============================================================
+   FORMULÁRIOS (CADASTRO)
+============================================================ */
 form {
-  max-width: 500px;
-  margin: var(--espacamento-grande) auto;
-  background: white;
-  padding: var(--espacamento-grande);
-  border-radius: var(--border-radius);
-  box-shadow: var(--sombra-suave);
+  max-width: 900px !important;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
 }
 
-input, textarea, select {
+form fieldset {
   width: 100%;
-  padding: var(--espacamento-medio);
-  margin-bottom: var(--espacamento-medio);
-  border: 2px solid #e0e0e0;
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
+  border: 1px solid #ddd;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
 }
 
-input:focus, textarea:focus, select:focus {
-  border-color: var(--cor-secundaria);
-  box-shadow: 0 0 0 3px rgba(201,76,111,0.2);
+form legend {
+  font-weight: bold;
+  color: #730c3d;
+  padding: 0 6px;
 }
 
-/* =====================
+form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Botões do formulário */
+form button {
+  background-color: #730c3d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease;
+  margin-right: 10px;
+  margin-bottom: 16px;
+}
+
+form button:hover {
+  background-color: #a8145a;
+}
+
+/* Radios e checkboxes */
+form input[type="radio"],
+form input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 10px;
+  transform: scale(1.1);
+}
+
+/* ============================================================
    RODAPÉ
-===================== */
+============================================================ */
 footer {
   background-color: var(--cor-rodape);
   color: white;
@@ -227,9 +332,9 @@ footer p {
   font-size: 0.9rem;
 }
 
-/* =====================
-   RESPONSIVIDADE
-===================== */
+/* ============================================================
+   RESPONSIVIDADE (LAYOUT ADAPTÁVEL)
+============================================================ */
 @media (max-width: 1024px) {
   nav ul {
     gap: var(--espacamento-pequeno);
@@ -252,10 +357,6 @@ footer p {
     width: 100%;
   }
 
-  nav ul li .submenu {
-    position: relative;
-  }
-
   #menu-toggle:checked + .menu-hamburguer + nav ul {
     display: flex;
   }
@@ -263,5 +364,330 @@ footer p {
   .menu-hamburguer {
     display: block;
     color: white;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-text a {
+    margin: var(--espacamento-pequeno) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    max-width: 100% !important;
+    padding: 0 16px;
+  }
+}
+
+
+/* ======================================================
+   SEÇÕES EXCLUSIVAS DE projetos.html
+   (Adicione tudo isso AO FINAL do style.css)
+====================================================== */
+
+/* ---------- SEÇÃO INTRODUTÓRIA ---------- */
+.pagina-projetos .intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 60px auto 40px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.pagina-projetos .intro h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 15px;
+}
+
+/* ---------- FILTRO DE PROJETOS ---------- */
+.filtro-projetos {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.filtro-projetos h3 {
+  color: var(--cor-primaria);
+  margin-bottom: 10px;
+}
+
+.filtro-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.filtro-container select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+}
+
+.filtro-container select:focus {
+  border-color: var(--cor-primaria);
+  outline: none;
+}
+
+.btn-destaque {
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-destaque:hover {
+  background-color: var(--cor-secundaria);
+  transform: translateY(-2px);
+}
+
+/* ---------- CARDS DE PROJETOS ---------- */
+.project-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ---------- COMO AJUDAR ---------- */
+.como-ajudar {
+  text-align: center;
+  background: linear-gradient(180deg, #fdfdfd, #f7f7f7);
+  padding: 60px 20px;
+  border-top: 1px solid #ddd;
+}
+
+.como-ajudar h3 {
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.como-ajudar p {
+  max-width: 750px;
+  margin: 0 auto 25px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.link-destaque {
+  color: var(--cor-primaria);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link-destaque:hover {
+  color: var(--cor-secundaria);
+}
+
+/* ---------- DEPOIMENTOS ---------- */
+.depoimentos {
+  background-color: #fafafa;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.depoimentos h3 {
+  color: var(--cor-primaria);
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.depoimentos p {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  font-style: italic;
+  color: #555;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 768px) {
+  .filtro-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-destaque {
+    width: 100%;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .depoimentos p {
+    padding: 15px;
+  }
+}
+
+
+/* =========================================
+   ESTILOS ESPECÍFICOS - PÁGINA DE CADASTRO
+========================================= */
+
+.cadastro-page {
+  background-color: #fafafa;
+}
+
+/* HERO com imagem lateral */
+.hero-cadastro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 40px 10%;
+  background: linear-gradient(120deg, #7b1e3d 20%, #9c2f50 100%);
+  color: #fff;
+  gap: 40px;
+}
+
+.hero-cadastro .hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-cadastro .hero-text h1 {
+  font-size: 2.3em;
+  margin-bottom: 10px;
+}
+
+.hero-cadastro .hero-text p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.hero-cadastro .hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cadastro img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.cadastro-main {
+  max-width: 900px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.cadastro-main fieldset {
+  border: 2px solid #7b1e3d;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+
+.cadastro-main legend {
+  font-weight: bold;
+  color: #7b1e3d;
+  padding: 0 10px;
+}
+
+.cadastro-main label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.cadastro-main input,
+.cadastro-main select,
+.cadastro-main textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.cadastro-main input:focus,
+.cadastro-main select:focus,
+.cadastro-main textarea:focus {
+  outline: none;
+  border-color: #7b1e3d;
+  box-shadow: 0 0 5px rgba(123, 30, 61, 0.4);
+}
+
+.form-buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-buttons .btn {
+  background-color: #7b1e3d;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  margin: 0 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.form-buttons .btn:hover {
+  background-color: #9c2f50;
+  transform: translateY(-2px);
+}
+
+.btn-limpar {
+  background-color: #bbb;
+}
+
+.btn-limpar:hover {
+  background-color: #999;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-cadastro {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 5%;
   }
 }
