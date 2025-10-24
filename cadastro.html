@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <!-- ============================ -->
+  <!-- CONFIGURAÇÕES BÁSICAS DA PÁGINA -->
+  <!-- ============================ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro | EloSocial</title>
@@ -9,9 +12,9 @@
 
 <body class="cadastro-page">
 
-  <!-- =========================
-       CABEÇALHO / MENU
-  ========================== -->
+  <!-- ========================= -->
+  <!--      CABEÇALHO / MENU     -->
+  <!-- ========================= -->
   <header>
     <h1><a href="index.html">EloSocial</a></h1>
 
@@ -28,9 +31,9 @@
     </nav>
   </header>
 
-  <!-- =========================
-       SEÇÃO DE INTRODUÇÃO (HERO)
-  ========================== -->
+  <!-- ========================= -->
+  <!--   SEÇÃO DE INTRODUÇÃO     -->
+  <!-- ========================= -->
   <section class="hero-cadastro">
     <div class="hero-text">
       <h1>Cadastre-se e Faça Parte!</h1>
@@ -47,16 +50,16 @@
     </div>
   </section>
 
-  <!-- =========================
-       FORMULÁRIO DE CADASTRO
-  ========================== -->
+  <!-- ========================= -->
+  <!--   FORMULÁRIO DE CADASTRO  -->
+  <!-- ========================= -->
   <main class="cadastro-main">
 
     <form>
 
-      <!-- =========================
-           BLOCO: INFORMAÇÕES PESSOAIS
-      ========================== -->
+      <!-- ========================= -->
+      <!-- INFORMAÇÕES PESSOAIS      -->
+      <!-- ========================= -->
       <fieldset>
         <legend>Informações Pessoais</legend>
 
@@ -81,9 +84,9 @@
         <input type="date" id="nascimento" name="nascimento" required>
       </fieldset>
 
-      <!-- =========================
-           BLOCO: ENDEREÇO
-      ========================== -->
+      <!-- ========================= -->
+      <!--         ENDEREÇO          -->
+      <!-- ========================= -->
       <fieldset>
         <legend>Endereço</legend>
 
@@ -115,29 +118,31 @@
         </select>
       </fieldset>
 
-      <!-- =========================
-           BLOCO: TIPO DE CADASTRO
-      ========================== -->
+      <!-- ========================= -->
+      <!--     TIPO DE CADASTRO      -->
+      <!-- ========================= -->
       <fieldset>
         <legend>Tipo de Cadastro</legend>
-
-        <label>
-          <input type="radio" name="tipo" value="voluntario" required> Voluntário
-        </label>
-        <label>
-          <input type="radio" name="tipo" value="doador"> Doador
-        </label>
-        <label>
-          <input type="radio" name="tipo" value="ong"> ONG Parceira
-        </label>
+        <!-- Radios alinhados horizontalmente -->
+        <div class="radio-group" style="display: flex; gap: 24px; align-items: center; margin-bottom: 16px;">
+          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
+            <input type="radio" name="tipo" value="voluntario" required style="margin-right: 8px; position: relative; top: 0;"> Voluntário
+          </label>
+          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
+            <input type="radio" name="tipo" value="doador" style="margin-right: 8px; position: relative; top: 0;"> Doador
+          </label>
+          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
+            <input type="radio" name="tipo" value="ong" style="margin-right: 8px; position: relative; top: 0;"> ONG Parceira
+          </label>
+        </div>
 
         <label for="mensagem">Conte um pouco sobre você (opcional):</label>
         <textarea id="mensagem" name="mensagem" rows="4" placeholder="Fale sobre sua motivação para participar..."></textarea>
       </fieldset>
 
-      <!-- =========================
-           BOTÕES DE AÇÃO
-      ========================== -->
+      <!-- ========================= -->
+      <!--      BOTÕES DE AÇÃO       -->
+      <!-- ========================= -->
       <div class="form-buttons">
         <button type="submit" class="btn">Enviar Cadastro</button>
         <button type="reset" class="btn btn-limpar">Limpar</button>
@@ -147,9 +152,9 @@
 
   </main>
 
-  <!-- =========================
-       RODAPÉ
-  ========================== -->
+  <!-- ========================= -->
+  <!--          RODAPÉ           -->
+  <!-- ========================= -->
   <footer>
     <p>&copy; 2025 EloSocial - Todos os direitos reservados</p>
     <p>Email: contato@elosocial.org | Tel: (11) 98765-4321</p>

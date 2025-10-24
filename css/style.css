@@ -1,29 +1,52 @@
 /* ============================================================
    VARIÁVEIS GLOBAIS
    ------------------------------------------------------------
-   Centraliza todas as cores, espaçamentos e estilos padrões.
+   Centraliza todas as cores, espaçamentos, tipografia e estilos padrões do sistema de design.
 ============================================================ */
 :root {
+  /* Paleta de cores principais e auxiliares */
   --cor-primaria: #7b1e3d;        /* vinho escuro */
   --cor-secundaria: #c94c6f;      /* vinho claro */
+  --cor-terciaria: #fbb13c;       /* amarelo */
+  --cor-sucesso: #4caf50;         /* verde sucesso */
+  --cor-erro: #e53935;            /* vermelho erro */
+  --cor-info: #1976d2;            /* azul info */
   --cor-neutra-clara: #f8f8f8;
+  --cor-neutra-media: #e0e0e0;
   --cor-neutra-escura: #333333;
   --cor-rodape: #2c1a26;
 
+  /* Tipografia */
   --font-principal: 'Arial', sans-serif;
+  --font-xxl: 3rem;
+  --font-xl: 2.25rem;
+  --font-lg: 1.5rem;
+  --font-md: 1.125rem;
+  --font-sm: 1rem;
 
+  /* Espaçamentos */
+  --espacamento-xs: 4px;
   --espacamento-pequeno: 8px;
-  --espacamento-medio: 16px;
+  --espacamento-sm: 12px;
+  --espacamento-md: 16px;
+  --espacamento-medio: 24px;
   --espacamento-grande: 32px;
+  --espacamento-xl: 48px;
+  --espacamento-xxl: 64px;
 
+  /* Bordas e sombras */
   --border-radius: 8px;
   --sombra-suave: 0 4px 12px rgba(0,0,0,0.1);
+
+  /* Grid */
+  --colunas: 12;
 }
 
+
 /* ============================================================
-   RESET E CONFIGURAÇÕES BÁSICAS
+   RESET E TIPOGRAFIA
    ------------------------------------------------------------
-   Remove margens/paddings padrão e define fontes e cores base.
+   Remove margens/paddings padrão e define fontes e tamanhos base.
 ============================================================ */
 * {
   margin: 0;
@@ -31,17 +54,116 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   font-family: var(--font-principal);
   color: var(--cor-neutra-escura);
   background-color: var(--cor-neutra-clara);
   line-height: 1.6;
+  font-size: var(--font-sm);
 }
+
+/* Tipografia hierárquica para títulos e textos */
+h1 {
+  font-size: var(--font-xxl);
+  font-weight: bold;
+}
+h2 {
+  font-size: var(--font-xl);
+  font-weight: 700;
+}
+h3 {
+  font-size: var(--font-lg);
+  font-weight: 600;
+}
+h4 {
+  font-size: var(--font-md);
+  font-weight: 600;
+}
+h5, h6 {
+  font-size: var(--font-sm);
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   GRID E SISTEMA DE LAYOUT
+   ------------------------------------------------------------
+   Define grid de 12 colunas, espaçamentos e utilitários de layout.
+============================================================ */
+/* Grade de 12 colunas */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--espacamento-medio);
+}
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-6 { grid-column: span 6; }
+.col-span-12 { grid-column: span 12; }
+
+
+/* ============================================================
+   COMPONENTES: TAGS, ALERTAS, MODAL
+   ------------------------------------------------------------
+   Estilos para tags, alertas de feedback e modal de feedback visual.
+============================================================ */
+/* Tags e emblemas */
+.tag {
+  display: inline-block;
+  background: var(--cor-terciaria);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2px 12px;
+  font-size: 0.95em;
+  margin-right: 8px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.tag.sucesso { background: var(--cor-sucesso); }
+.tag.erro { background: var(--cor-erro); }
+.tag.info { background: var(--cor-info); }
+
+/* Alertas e feedback */
+.alerta {
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin: 16px 0;
+  font-weight: 600;
+  background: var(--cor-terciaria);
+  color: #fff;
+}
+.alerta.sucesso { background: var(--cor-sucesso); }
+.alerta.erro { background: var(--cor-erro); }
+.alerta.info { background: var(--cor-info); }
+
+/* Modal simples */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal-conteudo {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  max-width: 400px;
+  text-align: center;
+}
+
 
 /* ============================================================
    CABEÇALHO / MENU DE NAVEGAÇÃO
    ------------------------------------------------------------
-   Inclui o título, links e comportamento responsivo do menu.
+   Inclui o título, links, submenu suspenso e comportamento responsivo do menu.
 ============================================================ */
 header {
   display: flex;
@@ -75,6 +197,7 @@ nav ul li {
   position: relative;
 }
 
+
 /* Estilo dos links */
 nav ul li a {
   color: white;
@@ -83,26 +206,77 @@ nav ul li a {
   padding: var(--espacamento-pequeno) var(--espacamento-medio);
   transition: color 0.3s ease;
 }
-
 nav ul li a:hover {
-  color: var(--cor-secundaria);
+  color: var(--cor-terciaria);
 }
 
-/* Submenu (removido visualmente, mas deixado para compatibilidade futura) */
+/* Submenu suspenso */
+nav ul li {
+  position: relative;
+}
 nav ul li .submenu {
   display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--cor-primaria);
+  min-width: 180px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 10;
+}
+nav ul li:hover .submenu {
+  display: block;
+}
+nav ul li .submenu a {
+  color: #fff;
+  padding: 10px 18px;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+nav ul li .submenu a:hover {
+  background: var(--cor-secundaria);
 }
 
-/* Menu responsivo (hambúrguer) */
-#menu-toggle {
-  display: none;
+/* Estados de botão desativado */
+button:disabled, .primario:disabled {
+  background: var(--cor-neutra-media);
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
 }
 
-.menu-hamburguer {
-  display: none;
-  font-size: 2rem;
+/* ============================================================
+   BOTÕES DE AÇÃO PRINCIPAIS (CLASSE .primario)
+   ------------------------------------------------------------
+   Estilo unificado para todos os botões de destaque do site.
+============================================================ */
+.primario {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  color: #fff;
+  text-decoration: none;
+  padding: var(--espacamento-pequeno) var(--espacamento-medio);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+  border: none;
   cursor: pointer;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  transition: all 0.3s cubic-bezier(.4,0,.2,1);
 }
+
+.primario:hover, .primario:focus {
+  background: linear-gradient(135deg, var(--cor-secundaria), var(--cor-primaria));
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 18px rgba(123,30,61,0.18);
+  text-decoration: none;
+}
+
 
 /* ============================================================
    HERO (SEÇÃO PRINCIPAL DO INDEX)
@@ -114,9 +288,9 @@ nav ul li .submenu {
   align-items: center;
   justify-content: space-between;
   padding: 80px var(--espacamento-grande);
-  background: linear-gradient(to right, rgba(123,30,61,0.8), rgba(201,76,111,0.8)), 
+  background: linear-gradient(to right, rgba(123,30,61,0.96), rgba(201,76,111,0.92)),
               url('../img/inicio.png') no-repeat center/cover;
-  color: white;
+  color: #fff;
   gap: var(--espacamento-grande);
   flex-wrap: wrap;
   border-radius: var(--border-radius);
@@ -170,8 +344,11 @@ nav ul li .submenu {
   box-shadow: var(--sombra-suave);
 }
 
+
 /* ============================================================
    CARDS (MISSÃO / O QUE FAZEMOS / COMO AJUDAR)
+   ------------------------------------------------------------
+   Estilos dos cards principais e de projetos.
 ============================================================ */
 main {
   padding: 0 var(--espacamento-grande);
@@ -195,7 +372,7 @@ main {
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
@@ -211,25 +388,11 @@ main {
   margin-bottom: var(--espacamento-medio);
 }
 
-/* Botões genéricos */
-button.primario {
-  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
-  color: white;
-  border: none;
-  border-radius: var(--border-radius);
-  padding: var(--espacamento-pequeno) var(--espacamento-medio);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button.primario:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(123,30,61,0.4);
-}
 
 /* ============================================================
    SEÇÃO DE ONGs EM DESTAQUE
+   ------------------------------------------------------------
+   Cards de ONGs e destaques.
 ============================================================ */
 .featured-ongs {
   margin-top: 60px;
@@ -245,8 +408,11 @@ button.primario:hover {
   text-align: center;
 }
 
+
 /* ============================================================
    FORMULÁRIOS (CADASTRO)
+   ------------------------------------------------------------
+   Estilos para campos, botões, radios, checkboxes e validação visual.
 ============================================================ */
 form {
   max-width: 900px !important;
@@ -317,8 +483,11 @@ form input[type="checkbox"] {
   transform: scale(1.1);
 }
 
+
 /* ============================================================
    RODAPÉ
+   ------------------------------------------------------------
+   Estilos do rodapé do site.
 ============================================================ */
 footer {
   background-color: var(--cor-rodape);
@@ -332,63 +501,51 @@ footer p {
   font-size: 0.9rem;
 }
 
+
 /* ============================================================
    RESPONSIVIDADE (LAYOUT ADAPTÁVEL)
+   ------------------------------------------------------------
+   Breakpoints e ajustes para diferentes tamanhos de tela.
 ============================================================ */
-@media (max-width: 1024px) {
-  nav ul {
-    gap: var(--espacamento-pequeno);
-  }
+@media (max-width: 1200px) {
+  html { font-size: 15px; }
 }
-
+@media (max-width: 992px) {
+  html { font-size: 14px; }
+}
+@media (max-width: 900px) {
+  html { font-size: 13.5px; }
+}
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: var(--espacamento-pequeno);
-  }
-
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    display: none;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  #menu-toggle:checked + .menu-hamburguer + nav ul {
-    display: flex;
-  }
-
-  .menu-hamburguer {
-    display: block;
-    color: white;
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 60px 20px;
-  }
-
-  .hero-text a {
-    margin: var(--espacamento-pequeno) 0;
-  }
+  html { font-size: 13px; }
 }
-
+@media (max-width: 600px) {
+  html { font-size: 12px; }
+}
 @media (max-width: 480px) {
-  form {
-    max-width: 100% !important;
-    padding: 0 16px;
-  }
+  html { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  html { font-size: 10px; }
+}
+
+/* Menu responsivo (hambúrguer) */
+#menu-toggle {
+  display: none;
+}
+
+.menu-hamburguer {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 
-/* ======================================================
+/* ============================================================
    SEÇÕES EXCLUSIVAS DE projetos.html
-   (Adicione tudo isso AO FINAL do style.css)
-====================================================== */
+   ------------------------------------------------------------
+   Estilos específicos para página de projetos.
+============================================================ */
 
 /* ---------- SEÇÃO INTRODUTÓRIA ---------- */
 .pagina-projetos .intro {
@@ -553,9 +710,11 @@ footer p {
 }
 
 
-/* =========================================
-   ESTILOS ESPECÍFICOS - PÁGINA DE CADASTRO
-========================================= */
+/* ============================================================
+   ESTILOS EXCLUSIVOS - PÁGINA DE CADASTRO
+   ------------------------------------------------------------
+   Estilos para hero, formulário e responsividade da página de cadastro.
+============================================================ */
 
 .cadastro-page {
   background-color: #fafafa;
@@ -690,4 +849,97 @@ footer p {
     text-align: center;
     padding: 30px 5%;
   }
+}
+
+/* ============================================================
+   ANIMAÇÕES E TRANSIÇÕES
+   ------------------------------------------------------------
+   Efeitos visuais para interações e feedback.
+============================================================ */
+a, button, .card, .hero-text a, .btn-destaque, .link-destaque {
+    transition: all 0.3s ease-in-out;
+}
+nav ul li a:hover {
+    transform: translateY(-2px);
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.btn-destaque:hover, .hero-text a:hover {
+    transform: scale(1.05);
+}
+.hero, .card, .featured-ongs {
+    animation: fadeIn 0.8s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.project-card img { transition: transform 0.3s ease-in-out; }
+.project-card:hover img { transform: scale(1.05); }
+form input:focus, form select:focus, form textarea:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+button:active { transform: scale(0.98); }
+
+/* ============================================================
+   EFEITOS DE PROFUNDIDADE E ELEVAÇÃO
+   ------------------------------------------------------------
+   Sombras, bordas e efeitos de destaque.
+============================================================ */
+.card { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); border: 1px solid rgba(0,0,0,0.1); }
+.card:hover { box-shadow: var(--shadow-lg, 0 8px 16px rgba(0,0,0,0.1)); }
+.btn-destaque, .hero-text a { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
+.btn-destaque:hover, .hero-text a:hover { box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.1)); }
+form input, form select, form textarea { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); border: 1px solid rgba(0,0,0,0.1); }
+form input:focus, form select:focus, form textarea:focus { box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.1)); }
+fieldset { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
+.hero-image img, .project-card img { box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.1)); }
+.filtro-projetos { background: rgba(255,255,255,0.98); backdrop-filter: blur(4px); box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
+.featured-ongs, .como-ajudar, .depoimentos { border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
+.menu-hamburguer { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
+.link-destaque:hover { box-shadow: var(--shadow-md, 0 4px 8px rgba(0,0,0,0.1)); }
+
+/* ============================================================
+   RESPONSIVIDADE APRIMORADA (UNIFICADO)
+   ------------------------------------------------------------
+   Breakpoints adicionais e ajustes finos.
+============================================================ */
+@media (max-width: 1200px) {
+    :root { --spacing-xl: 4rem; }
+    .hero { padding: var(--spacing-lg, 4rem) var(--spacing-md, 2rem); }
+}
+@media (max-width: 1024px) {
+    html { font-size: 95%; }
+    .card-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    html { font-size: 90%; }
+    header { padding: var(--spacing-sm, 1rem); }
+    .hero { flex-direction: column; text-align: center; }
+    .hero-text, .hero-image { width: 100%; padding: var(--spacing-sm, 1rem); }
+    .card-container { grid-template-columns: 1fr; padding: var(--spacing-sm, 1rem); }
+    .filtro-container { flex-direction: column; gap: var(--spacing-sm, 1rem); }
+    .filtro-container select, .filtro-container button { width: 100%; }
+    form { padding: var(--spacing-sm, 1rem); }
+}
+@media (max-width: 480px) {
+    html { font-size: 85%; }
+    .hero-text h1 { font-size: 2rem; }
+    .card { margin: var(--spacing-sm, 1rem) 0; }
+    footer { text-align: center; padding: var(--spacing-md, 2rem) var(--spacing-sm, 1rem); }
+    .depoimentos p { font-size: 0.9rem; }
+}
+@media (max-width: 320px) {
+    html { font-size: 80%; }
+    .hero-text h1 { font-size: 1.8rem; }
+    .btn-destaque, .hero-text a { padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 1rem); width: 100%; }
+}
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; margin: 0 auto; }
+    html { font-size: 110%; }
+}
+@media (prefers-color-scheme: dark) {
+    :root { }
 }
