@@ -917,12 +917,105 @@ fieldset { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
 @media (max-width: 768px) {
     html { font-size: 90%; }
     header { padding: var(--spacing-sm, 1rem); }
-    .hero { flex-direction: column; text-align: center; }
-    .hero-text, .hero-image { width: 100%; padding: var(--spacing-sm, 1rem); }
-    .card-container { grid-template-columns: 1fr; padding: var(--spacing-sm, 1rem); }
-    .filtro-container { flex-direction: column; gap: var(--spacing-sm, 1rem); }
-    .filtro-container select, .filtro-container button { width: 100%; }
-    form { padding: var(--spacing-sm, 1rem); }
+    
+    /* Menu mobile */
+    .menu-hamburguer { 
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: white;
+    }
+    nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--cor-primaria);
+        padding: var(--espacamento-medio);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav ul {
+        flex-direction: column;
+        gap: var(--espacamento-pequeno);
+    }
+    nav ul li {
+        width: 100%;
+    }
+    nav ul li a {
+        display: block;
+        padding: var(--espacamento-pequeno);
+    }
+    nav ul li .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        margin-top: var(--espacamento-pequeno);
+        display: none;
+    }
+    nav ul li:hover .submenu {
+        display: block;
+    }
+    #menu-toggle:checked ~ nav {
+        display: block;
+    }
+    
+    /* Layout responsivo */
+    .hero { 
+        flex-direction: column; 
+        text-align: center;
+        padding: var(--espacamento-medio);
+    }
+    .hero-text, .hero-image { 
+        width: 100%; 
+        padding: var(--espacamento-pequeno);
+    }
+    .card-container { 
+        grid-template-columns: 1fr; 
+        padding: var(--espacamento-pequeno);
+        gap: var(--espacamento-medio);
+    }
+    
+    /* Formulários e filtros */
+    .filtro-container { 
+        flex-direction: column; 
+        gap: var(--espacamento-pequeno);
+    }
+    .filtro-container select, 
+    .filtro-container button { 
+        width: 100%; 
+    }
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--espacamento-pequeno);
+    }
+    form { 
+        padding: var(--espacamento-medio);
+        margin: var(--espacamento-pequeno);
+    }
+    
+    /* Elementos responsivos */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .card {
+        margin: var(--espacamento-pequeno) 0;
+    }
+    .primario, .btn-destaque {
+        width: 100%;
+        margin: var(--espacamento-pequeno) 0;
+        text-align: center;
+    }
+    
+    /* Ajustes de espaçamento */
+    .depoimentos, .parceiros, .contato {
+        padding: var(--espacamento-medio);
+    }
+    blockquote {
+        margin: var(--espacamento-medio) 0;
+    }
 }
 @media (max-width: 480px) {
     html { font-size: 85%; }
