@@ -1,0 +1,312 @@
+<!-- TEMPLATE SPA: apenas conteúdo, sem <html>, <head>, <body> -->
+  <!-- ====================================================== -->
+  <!--      CABEÇALHO / MENU DE NAVEGAÇÃO                    -->
+  <!-- ====================================================== -->
+  <header>
+    <h1 style="display: flex; align-items: center; gap: 16px;">
+      <img src="img/icon.png" alt="Logo EloSocial" style="height: 56px; width: 56px; vertical-align: middle;"> 
+      <a href="index.html" style="display: inline-block; vertical-align: middle; font-size: 2.2rem;">EloSocial</a>
+    </h1>
+    <!-- Menu hambúrguer para mobile -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-hamburguer">&#9776;</label>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html" class="active">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====================================================== -->
+  <!--   SEÇÃO DE INTRODUÇÃO / APRESENTAÇÃO DOS PROJETOS      -->
+  <!-- ====================================================== -->
+  <main class="pagina-projetos">
+
+    <section class="intro">
+      <h2>Nossos Projetos e Parcerias</h2>
+      <p>
+        A <strong>EloSocial</strong> acredita que o verdadeiro impacto social nasce da colaboração entre pessoas que querem mudar o mundo.  
+        Aqui, reunimos projetos que unem educação, tecnologia, sustentabilidade e empatia.  
+        Conheça nossas iniciativas e veja como você pode participar dessa transformação.
+      </p>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--   SEÇÃO DE MÉTRICAS E IMPACTO                         -->
+    <!-- ====================================================== -->
+    <section class="metricas-impacto">
+      <div class="metricas-container">
+        <div class="metrica-item">
+          <span class="numero-impacto" data-valor="15">0</span>
+          <span class="metrica-texto">Projetos<br>Ativos</span>
+        </div>
+        <div class="metrica-item">
+          <span class="numero-impacto" data-valor="2500">0</span>
+          <span class="metrica-texto">Pessoas<br>Impactadas</span>
+        </div>
+        <div class="metrica-item">
+          <span class="numero-impacto" data-valor="300">0</span>
+          <span class="metrica-texto">Voluntários<br>Engajados</span>
+        </div>
+        <div class="metrica-item">
+          <span class="numero-impacto" data-valor="12">0</span>
+          <span class="metrica-texto">Cidades<br>Alcançadas</span>
+        </div>
+      </div>
+      <div class="impacto-info">
+        <div class="tag-container">
+          <span class="tag">Educação</span>
+          <span class="tag">Sustentabilidade</span>
+          <span class="tag">Tecnologia</span>
+          <span class="tag">Inclusão Social</span>
+        </div>
+        <p class="impacto-texto">
+          Juntos, estamos construindo um futuro mais justo e sustentável.
+          Nossa rede cresce a cada dia, multiplicando sorrisos e transformando vidas.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--   SEÇÃO DE FILTROS OU CHAMADA PARA AÇÃO               -->
+    <!-- ====================================================== -->
+    <section class="filtro-projetos">
+      <h3>Encontre um projeto que combine com você</h3>
+      <p>Filtre por categoria ou região e descubra onde sua ajuda faz a diferença.</p>
+      <div class="filtro-container">
+        <div class="filtro-grupo">
+          <label for="categoria">
+            <i class="fas fa-tag"></i>
+            Categoria
+          </label>
+          <select name="categoria" id="categoria">
+            <option value="">Todas as categorias</option>
+            <option value="educacao">Educação</option>
+            <option value="sustentabilidade">Sustentabilidade</option>
+            <option value="inclusao">Inclusão Social</option>
+            <option value="tecnologia">Tecnologia</option>
+            <option value="saude">Saúde</option>
+            <option value="cultura">Cultura</option>
+            <option value="esporte">Esporte</option>
+          </select>
+        </div>
+
+        <div class="filtro-grupo">
+          <label for="estado">
+            <i class="fas fa-map-marker-alt"></i>
+            Localização
+          </label>
+          <select name="estado" id="estado">
+            <option value="">Todos os estados</option>
+            <option value="sp">São Paulo</option>
+            <option value="mg">Minas Gerais</option>
+            <option value="pe">Pernambuco</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="rs">Rio Grande do Sul</option>
+            <option value="ba">Bahia</option>
+            <option value="pr">Paraná</option>
+          </select>
+        </div>
+
+        <div class="filtro-grupo">
+          <label for="publico">
+            <i class="fas fa-users"></i>
+            Público-alvo
+          </label>
+          <select name="publico" id="publico">
+            <option value="">Todos os públicos</option>
+            <option value="criancas">Crianças</option>
+            <option value="jovens">Jovens</option>
+            <option value="adultos">Adultos</option>
+            <option value="idosos">Idosos</option>
+            <option value="familias">Famílias</option>
+            <option value="comunidades">Comunidades</option>
+          </select>
+        </div>
+
+        <div class="filtro-grupo">
+          <label for="status">
+            <i class="fas fa-clock"></i>
+            Status
+          </label>
+          <select name="status" id="status">
+            <option value="">Qualquer status</option>
+            <option value="ativo">Em andamento</option>
+            <option value="planejamento">Em planejamento</option>
+            <option value="concluido">Concluído</option>
+            <option value="urgente">Precisa de ajuda urgente</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filtro-tags">
+        <span class="tag ativo">Todos</span>
+        <span class="tag">Recentes</span>
+        <span class="tag">Urgentes</span>
+        <span class="tag">Mais populares</span>
+        <span class="tag">Precisa de voluntários</span>
+      </div>
+
+      <button class="btn-destaque">
+        <i class="fas fa-search"></i>
+        Buscar Projetos
+      </button>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--   LISTAGEM DE PROJETOS / CARDS                        -->
+    <!-- ====================================================== -->
+    <div class="card-container">
+
+      <!-- PROJETO 1 -->
+      <section class="card project-card">
+        <h3>Projeto Sementes do Amanhã</h3>
+        <picture>
+          <source srcset="img/projeto1.webp" type="image/webp">
+          <source srcset="img/projeto1.png" type="image/png">
+          <img src="img/projeto1.png" alt="Crianças aprendendo sobre jardinagem e reciclagem" width="300" loading="lazy">
+        </picture>
+        <p>
+          Voltado à educação ambiental de crianças em comunidades carentes, o projeto ensina práticas de reciclagem, jardinagem e cuidado com o meio ambiente.  
+          Mais de 500 alunos já participaram das oficinas e desenvolveram suas próprias hortas comunitárias.
+        </p>
+        <p><strong>Local:</strong> Recife, PE</p>
+        <p><strong>Atuação:</strong> Educação e Sustentabilidade</p>
+        <p><strong>Contato:</strong> sementes@elosocial.org</p>
+        <a href="#" class="primario">Saiba Mais</a>
+      </section>
+
+      <!-- PROJETO 2 -->
+      <section class="card project-card">
+        <h3>Laços de Esperança</h3>
+        <picture>
+          <source srcset="img/projeto2.webp" type="image/webp">
+          <source srcset="img/projeto2.png" type="image/png">
+          <img src="img/projeto2.png" alt="Entrega de cestas básicas e oficinas de capacitação" width="300" loading="lazy">
+        </picture>
+        <p>
+          Este projeto oferece apoio direto a famílias em situação de vulnerabilidade.  
+          Além das cestas básicas, o grupo promove rodas de conversa, apoio psicológico e oficinas de capacitação para geração de renda.  
+          A iniciativa já impactou mais de 800 famílias desde 2023.
+        </p>
+        <p><strong>Local:</strong> São Paulo, SP</p>
+        <p><strong>Atuação:</strong> Inclusão Social</p>
+        <p><strong>Contato:</strong> lacos@elosocial.org</p>
+        <a href="#" class="primario">Saiba Mais</a>
+      </section>
+
+      <!-- PROJETO 3 -->
+      <section class="card project-card">
+        <h3>Tech para Todos</h3>
+        <picture>
+          <source srcset="img/projeto3.webp" type="image/webp">
+          <source srcset="img/projeto3.png" type="image/png">
+          <img src="img/projeto3.png" alt="Curso de informática e programação para jovens e adultos" width="300" loading="lazy">
+        </picture>
+        <p>
+          O “Tech para Todos” leva inclusão digital a comunidades de baixa renda com aulas gratuitas de informática, robótica e programação.  
+          O foco é preparar jovens e adultos para o mercado de trabalho digital, incentivando o aprendizado contínuo e o trabalho colaborativo.
+        </p>
+        <p><strong>Local:</strong> Belo Horizonte, MG</p>
+        <p><strong>Atuação:</strong> Educação e Tecnologia</p>
+        <p><strong>Contato:</strong> tech@elosocial.org</p>
+        <a href="#" class="primario">Saiba Mais</a>
+      </section>
+
+    </div>
+
+    <!-- ====================================================== -->
+    <!--   SEÇÃO DE PARCEIROS                                  -->
+    <!-- ====================================================== -->
+    <section class="parceiros">
+      <h3>Nossos Parceiros</h3>
+      <p class="parceiros-descricao">
+        Empresas e organizações que acreditam no poder da transformação social e apoiam nossos projetos.
+      </p>
+
+      <div class="parceiros-grid">
+        <div class="parceiro-card">
+          <img src="img/parceiro1.png" alt="Logo da empresa parceira 1">
+          <div class="parceiro-info">
+            <h4>TechCorp Brasil</h4>
+            <p>Fornece equipamentos e suporte técnico para o projeto Tech para Todos.</p>
+            <span class="contribuicao">Parceiro desde 2023</span>
+          </div>
+        </div>
+
+        <div class="parceiro-card">
+          <img src="img/parceiro2.png" alt="Logo da empresa parceira 2">
+          <div class="parceiro-info">
+            <h4>Instituto Verde Vida</h4>
+            <p>Principal apoiador do Projeto Sementes do Amanhã, com expertise em sustentabilidade.</p>
+            <span class="contribuicao">Parceiro desde 2022</span>
+          </div>
+        </div>
+
+        <div class="parceiro-card">
+          <img src="img/parceiro3.png" alt="Logo da empresa parceira 3">
+          <div class="parceiro-info">
+            <h4>Fundação Esperança</h4>
+            <p>Contribui com recursos e voluntários para o projeto Laços de Esperança.</p>
+            <span class="contribuicao">Parceiro desde 2023</span>
+          </div>
+        </div>
+
+        <div class="parceiro-card">
+          <img src="img/parceiro4.png" alt="Logo da empresa parceira 4">
+          <div class="parceiro-info">
+            <h4>Grupo Educação+</h4>
+            <p>Oferece material didático e mentoria para nossos projetos educacionais.</p>
+            <span class="contribuicao">Parceiro desde 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="parceiros-cta">
+        <h4>Sua empresa também pode fazer parte dessa transformação</h4>
+        <p>Junte-se a nós e faça a diferença na vida de milhares de pessoas.</p>
+        <a href="#" class="btn-destaque">Seja um Parceiro</a>
+      </div>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--   SEÇÃO DE CHAMADA FINAL / ENVOLVIMENTO                -->
+    <!-- ====================================================== -->
+    <section class="como-ajudar">
+      <h3>Como Ajudar?</h3>
+      <p>
+        Toda ajuda importa — seja seu tempo, conhecimento ou um pequeno valor doado.  
+        Cadastre-se como <a href="cadastro.html" class="link-destaque">voluntário</a>, compartilhe nossos projetos nas redes sociais  
+        ou contribua financeiramente para manter vivas as iniciativas que transformam realidades.
+      </p>
+      <a href="cadastro.html" class="btn-destaque">Quero Participar</a>
+    </section>
+
+    <!-- ====================================================== -->
+    <!--   DEPOIMENTOS / HISTÓRIAS DE IMPACTO                   -->
+    <!-- ====================================================== -->
+    <section class="depoimentos">
+      <h3>Histórias que Inspiram</h3>
+      <p>
+        “Graças ao projeto Tech para Todos, consegui meu primeiro emprego na área de TI! Hoje sou monitora voluntária e ensino outras pessoas.”  
+        <br><em>— Ana Luiza, 22 anos, BH</em>
+      </p>
+      <p>
+        “Antes do Laços de Esperança, eu estava sem perspectiva. Aprendi a costurar e hoje tenho minha pequena renda com artesanato.”  
+        <br><em>— Dona Celina, 54 anos, SP</em>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ====================================================== -->
+  <!--                        RODAPÉ                         -->
+  <!-- ====================================================== -->
+  <footer>
+    <p>&copy; 2025 EloSocial - Todos os direitos reservados</p>
+    <p>Email: contato@elosocial.org | Tel: (11) 98765-4321</p>
+    <p>Rua das Flores, 120 - São Paulo/SP</p>
+  </footer>
+
