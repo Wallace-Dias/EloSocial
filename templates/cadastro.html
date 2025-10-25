@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <!-- ============================ -->
-  <!-- CONFIGURAÇÕES BÁSICAS DA PÁGINA -->
-  <!-- ============================ -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro | EloSocial</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
 
-<body class="cadastro-page">
 
   <!-- ========================= -->
   <!--      CABEÇALHO / MENU     -->
   <!-- ========================= -->
   <header>
-    <h1><a href="index.html">EloSocial</a></h1>
+    <h1 style="display: flex; align-items: center; gap: 16px;">
+      <img src="img/icon.png" alt="Logo EloSocial" style="height: 56px; width: 56px; vertical-align: middle;"> 
+      <a href="index.html" style="display: inline-block; vertical-align: middle; font-size: 2.2rem;">EloSocial</a>
+    </h1>
 
     <!-- Checkbox do menu mobile -->
     <input type="checkbox" id="menu-toggle">
@@ -55,33 +46,34 @@
   <!-- ========================= -->
   <main class="cadastro-main">
 
-    <form>
+    <form id="cadastroForm">
 
       <!-- ========================= -->
       <!-- INFORMAÇÕES PESSOAIS      -->
       <!-- ========================= -->
       <fieldset>
-        <legend>Informações Pessoais</legend>
+   <legend>Informações Pessoais</legend>
 
-        <label for="nome">Nome Completo:</label>
-        <input type="text" id="nome" name="nome" required>
+   <label for="cadastro-nome">Nome Completo:</label>
+   <input type="text" id="cadastro-nome" name="nome" autocomplete="name" required>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+   <label for="cadastro-email">E-mail:</label>
+   <input type="email" id="cadastro-email" name="email" autocomplete="email" required>
 
-        <label for="cpf">CPF:</label>
-        <input type="text" id="cpf" name="cpf" 
-               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
-               placeholder="000.000.000-00" 
-               required>
+   <label for="cadastro-cpf">CPF:</label>
+   <input type="text" id="cadastro-cpf" name="cpf" 
+     pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" 
+     placeholder="000.000.000-00" 
+     autocomplete="off" required>
 
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" 
-               pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" 
-               placeholder="(11) 91234-5678">
+   <label for="cadastro-telefone">Telefone:</label>
+   <input type="tel" id="cadastro-telefone" name="telefone" 
+     pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" 
+     placeholder="(11) 91234-5678" 
+     autocomplete="tel">
 
-        <label for="nascimento">Data de Nascimento:</label>
-        <input type="date" id="nascimento" name="nascimento" required>
+   <label for="cadastro-nascimento">Data de Nascimento:</label>
+   <input type="date" id="cadastro-nascimento" name="nascimento" autocomplete="bday" required>
       </fieldset>
 
       <!-- ========================= -->
@@ -90,20 +82,20 @@
       <fieldset>
         <legend>Endereço</legend>
 
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" required>
+        <label for="cadastro-endereco">Endereço:</label>
+        <input type="text" id="cadastro-endereco" name="endereco" autocomplete="street-address" required>
 
-        <label for="cep">CEP:</label>
-        <input type="text" id="cep" name="cep" 
+        <label for="cadastro-cep">CEP:</label>
+        <input type="text" id="cadastro-cep" name="cep" 
                pattern="\d{5}-\d{3}" 
                placeholder="00000-000" 
-               required>
+               autocomplete="postal-code" required>
 
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" required>
+        <label for="cadastro-cidade">Cidade:</label>
+        <input type="text" id="cadastro-cidade" name="cidade" autocomplete="address-level2" required>
 
-        <label for="estado">Estado:</label>
-        <select id="estado" name="estado" required>
+        <label for="cadastro-estado">Estado:</label>
+        <select id="cadastro-estado" name="estado" autocomplete="address-level1" required>
           <option value="">Selecione</option>
           <option value="SP">SP</option>
           <option value="RJ">RJ</option>
@@ -124,20 +116,20 @@
       <fieldset>
         <legend>Tipo de Cadastro</legend>
         <!-- Radios alinhados horizontalmente -->
-        <div class="radio-group" style="display: flex; gap: 24px; align-items: center; margin-bottom: 16px;">
-          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
-            <input type="radio" name="tipo" value="voluntario" required style="margin-right: 8px; position: relative; top: 0;"> Voluntário
+        <div class="radio-group">
+          <label for="cadastro-tipo-voluntario">
+            <input type="radio" id="cadastro-tipo-voluntario" name="tipo" value="voluntario" autocomplete="off" required> Voluntário
           </label>
-          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
-            <input type="radio" name="tipo" value="doador" style="margin-right: 8px; position: relative; top: 0;"> Doador
+          <label for="cadastro-tipo-doador">
+            <input type="radio" id="cadastro-tipo-doador" name="tipo" value="doador" autocomplete="off"> Doador
           </label>
-          <label style="display: flex; align-items: center; font-weight: 500; margin: 0;">
-            <input type="radio" name="tipo" value="ong" style="margin-right: 8px; position: relative; top: 0;"> ONG Parceira
+          <label for="cadastro-tipo-ong">
+            <input type="radio" id="cadastro-tipo-ong" name="tipo" value="ong" autocomplete="off"> ONG Parceira
           </label>
         </div>
 
-        <label for="mensagem">Conte um pouco sobre você (opcional):</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Fale sobre sua motivação para participar..."></textarea>
+        <label for="cadastro-mensagem">Conte um pouco sobre você (opcional):</label>
+        <textarea id="cadastro-mensagem" name="mensagem" rows="4" placeholder="Fale sobre sua motivação para participar..." autocomplete="off"></textarea>
       </fieldset>
 
       <!-- ========================= -->

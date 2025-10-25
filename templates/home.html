@@ -1,0 +1,246 @@
+<!-- TEMPLATE SPA: apenas conteúdo, sem <html>, <head>, <body> -->
+  <!--        CABEÇALHO / MENU      -->
+  <!-- ============================ -->
+  <header>
+    <!-- LOGO / TÍTULO PRINCIPAL -->
+    <h1 style="display: flex; align-items: center; gap: 16px;">
+      <img src="img/icon.png" alt="Logo EloSocial" style="height: 56px; width: 56px; vertical-align: middle;"> 
+      <a href="index.html" style="display: inline-block; vertical-align: middle; font-size: 2.2rem;">EloSocial</a>
+    </h1>
+
+    <!-- MENU HAMBÚRGUER (para mobile) -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-hamburguer">&#9776;</label>
+
+    <!-- NAVEGAÇÃO PRINCIPAL -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li>
+          <a href="projetos.html">Projetos</a>
+          <!-- Submenu suspenso -->
+          <ul class="submenu">
+            <li><a href="projetos.html#educacao">Educação</a></li>
+            <li><a href="projetos.html#sustentabilidade">Sustentabilidade</a></li>
+            <li><a href="projetos.html#inclusao">Inclusão Social</a></li>
+            <li><a href="projetos.html#tecnologia">Tecnologia</a></li>
+          </ul>
+        </li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================ -->
+  <!--          SEÇÃO HERO           -->
+  <!-- ============================ -->
+  <section class="hero">
+    <!-- TEXTO PRINCIPAL DA HERO -->
+    <div class="hero-text">
+      <h1>Conectando Pessoas a Causas</h1>
+      <p>
+        A EloSocial une voluntários, ONGs e doadores para gerar impacto social real.
+        Descubra projetos próximos e faça parte da mudança!
+      </p>
+
+      <!-- BOTÕES DE AÇÃO PRINCIPAIS -->
+      <a href="projetos.html" class="primario">Ver Projetos</a>
+      <a href="cadastro.html" class="primario">Cadastre-se</a>
+    </div>
+
+    <!-- IMAGEM PRINCIPAL DA HERO -->
+    <div class="hero-image">
+      <picture>
+        <source srcset="img/inicio.webp" type="image/webp">
+        <source srcset="img/inicio.png" type="image/png">
+        <img src="img/inicio.png" alt="Voluntários ajudando em um projeto social" loading="lazy">
+      </picture>
+    </div>
+  </section>
+
+  <!-- ============================ -->
+  <!--     SEÇÃO DE CARDS INICIAIS   -->
+  <!-- ============================ -->
+  <main>
+    <!-- SEÇÃO SOBRE -->
+    <!-- Alerta informativo para protótipo -->
+    <div class="alerta info" style="max-width:600px;margin:24px auto;">Atenção: Este site é um protótipo acadêmico. Dados fictícios.</div>
+    <section class="sobre" style="margin-bottom: 48px;">
+      <h2>Sobre a EloSocial</h2>
+      <p>
+        A EloSocial nasceu do desejo de aproximar pessoas, organizações e causas sociais. Nossa plataforma conecta voluntários, ONGs e doadores, promovendo a colaboração e o impacto positivo em comunidades de todo o Brasil. Acreditamos que pequenas ações, quando somadas, transformam realidades e constroem um futuro mais justo e solidário.
+      </p>
+      <p>
+        Nossa equipe é formada por profissionais e voluntários apaixonados por transformação social, tecnologia e inovação. Juntos, desenvolvemos ferramentas para facilitar o engajamento, a transparência e o acompanhamento dos resultados dos projetos apoiados.
+      </p>
+    </section>
+    <!-- CONTAINER PRINCIPAL DOS CARDS -->
+    <div class="card-container">
+
+      <!-- CARD 1: MISSÃO -->
+      <div class="card">
+        <h2>🎯 Missão</h2>
+        <p>
+          Promover a colaboração entre ONGs, voluntários e doadores para gerar impacto positivo
+          em comunidades de todo o Brasil.
+        </p>
+        <!-- Botão estilizado -->
+        <a href="projetos.html" class="primario">Saiba Mais</a>
+      </div>
+
+      <!-- CARD 2: O QUE FAZEMOS -->
+      <div class="card">
+        <h2>💡 O que fazemos</h2>
+        <p>
+          Divulgamos projetos sociais, conectamos pessoas a iniciativas relevantes
+          e fornecemos ferramentas para acompanhar resultados.
+        </p>
+        <!-- Botão estilizado -->
+        <a href="projetos.html" class="primario">Ver Projetos</a>
+      </div>
+
+      <!-- CARD 3: COMO AJUDAR -->
+      <div class="card">
+        <h2>🤝 Como ajudar</h2>
+        <p>
+          Você pode se tornar voluntário, fazer doações ou apoiar com conhecimento e recursos.
+          Cada ação faz diferença.
+        </p>
+        <!-- Botão estilizado -->
+        <a href="cadastro.html" class="primario">Participe</a>
+      </div>
+    </div>
+
+    <!-- ============================ -->
+    <!--     SEÇÃO COMO FUNCIONA      -->
+    <!-- ============================ -->
+    <!-- Tags/Emblemas integradas -->
+    <section style="margin-bottom: 32px; text-align: center;">
+      <span class="tag">Impacto</span>
+      <span class="tag sucesso">Sucesso</span>
+      <span class="tag info">Novo</span>
+    </section>
+    <!-- Lista centralizada e visualmente destacada -->
+    <section class="como-funciona" style="margin-bottom: 48px; text-align: center;">
+      <h2>Como Funciona</h2>
+      <ol style="max-width: 800px; margin: 0 auto; text-align: left; display: inline-block;">
+        <li><strong>Descubra:</strong> Navegue por projetos sociais, ONGs e oportunidades de voluntariado em sua região.</li>
+        <li><strong>Conecte-se:</strong> Entre em contato com organizações e pessoas que compartilham dos mesmos valores e propósitos.</li>
+        <li><strong>Participe:</strong> Inscreva-se em projetos, doe recursos ou compartilhe conhecimento para fortalecer as iniciativas.</li>
+        <li><strong>Acompanhe:</strong> Veja o impacto gerado por meio de relatos, fotos e resultados publicados pelas ONGs.</li>
+      </ol>
+    </section>
+
+    <!-- ============================ -->
+    <!--   SEÇÃO DE ONGs EM DESTAQUE   -->
+    <!-- ============================ -->
+    <section class="featured-ongs">
+      <!-- TÍTULO DA SEÇÃO -->
+      <h2>ONGs em Destaque</h2>
+
+      <!-- CONTAINER DE CARDS DAS ONGs -->
+      <div class="card-container">
+
+        <!-- ONG 1 -->
+        <div class="card">
+          <h3>Sementes do Amanhã</h3>
+          <p>Educação ambiental para crianças em comunidades carentes.</p>
+          <!-- Botão estilizado levando para projetos -->
+          <a href="projetos.html" class="primario">Saiba Mais</a>
+        </div>
+
+        <!-- ONG 2 -->
+        <div class="card">
+          <h3>Laços de Esperança</h3>
+          <p>Apoio a famílias em vulnerabilidade com cestas básicas e oficinas.</p>
+          <!-- Botão estilizado levando para projetos -->
+          <a href="projetos.html" class="primario">Saiba Mais</a>
+        </div>
+
+        <!-- ONG 3 -->
+        <div class="card">
+          <h3>Tech para Todos</h3>
+          <p>Inclusão digital com cursos de informática e programação.</p>
+          <!-- Botão estilizado levando para projetos -->
+          <a href="projetos.html" class="primario">Saiba Mais</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ -->
+    <!--         SEÇÃO PARCEIROS      -->
+    <!-- ============================ -->
+    <section class="parceiros" style="margin: 56px 0; text-align: center;">
+      <h2>Parceiros</h2>
+      <p>Contamos com o apoio de empresas, instituições de ensino e voluntários que acreditam no poder da colaboração. Conheça alguns dos nossos parceiros:</p>
+      <ul style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; list-style: none; margin-top: 32px;">
+        <li><img src="img/parceiro1.png" alt="Parceiro 1" style="height: 48px;"> <br> Instituto Cidadania</li>
+        <li><img src="img/parceiro2.png" alt="Parceiro 2" style="height: 48px;"> <br> Tech4Good</li>
+        <li><img src="img/parceiro3.png" alt="Parceiro 3" style="height: 48px;"> <br> Universidade Solidária</li>
+        <li><img src="img/parceiro4.png" alt="Parceiro 4" style="height: 48px;"> <br> Voluntários do Bem</li>
+      </ul>
+    </section>
+
+    <!-- ============================ -->
+    <!--        SEÇÃO DEPOIMENTOS      -->
+    <!-- ============================ -->
+    <section class="depoimentos" style="margin: 56px 0;">
+      <h2>Depoimentos</h2>
+      <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
+        “A EloSocial me ajudou a encontrar um projeto incrível de educação ambiental. Hoje sou voluntário e vejo o impacto de perto!”<br>
+        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Rafael, Recife/PE</span>
+      </blockquote>
+      <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
+        “Consegui meu primeiro emprego na área de TI após participar do Tech para Todos. Hoje ajudo outras pessoas a aprenderem também.”<br>
+        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Ana Luiza, BH</span>
+      </blockquote>
+      <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
+        “A plataforma é fácil de usar e me conectou rapidamente a uma ONG que precisava de apoio em comunicação.”<br>
+        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Camila, São Paulo/SP</span>
+      </blockquote>
+    </section>
+
+    <!-- ============================ -->
+    <!--        SEÇÃO CONTATO         -->
+    <!-- ============================ -->
+    <!-- MODAL DE EXEMPLO (apenas visual, pode ser removido se não for requisito) -->
+    <div id="modal-exemplo" class="modal" style="display:none;">
+      <div class="modal-conteudo">
+        <h3>Fique por dentro das oportunidades</h3>
+        <p>Cadastre-se para receber atualizações sobre novos projetos, eventos e oportunidades de voluntariado na sua região. Vamos avisar quando houver vagas, campanhas de arrecadação e ações presenciais próximas a você.</p>
+        <div style="display:flex; gap:12px; justify-content:center; margin-top:12px; flex-wrap:wrap;">
+          <a href="cadastro.html" class="primario">Quero me inscrever</a>
+          <button class="primario" onclick="document.getElementById('modal-exemplo').style.display='none'">Fechar</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Exibe o modal apenas na primeira visita (simulação)
+      if (!sessionStorage.getItem('modalVisto')) {
+        document.getElementById('modal-exemplo').style.display = 'flex';
+        sessionStorage.setItem('modalVisto', '1');
+      }
+    </script>
+    <section class="contato" style="margin: 56px 0; text-align: center;">
+      <h2>Fale Conosco</h2>
+      <p>Tem dúvidas, sugestões ou quer ser nosso parceiro? Entre em contato!</p>
+      <ul style="list-style: none; margin: 24px 0; padding: 0;">
+        <li><strong>Email:</strong> contato@elosocial.org</li>
+        <li><strong>Telefone:</strong> (11) 98765-4321</li>
+        <li><strong>Endereço:</strong> Rua das Flores, 120 - São Paulo/SP</li>
+      </ul>
+      <a href="cadastro.html" class="primario">Quero ser voluntário</a>
+    </section>
+    </section>
+  </main>
+
+  <!-- ============================ -->
+  <!--            RODAPÉ            -->
+  <!-- ============================ -->
+  <footer>
+    <p>&copy; 2025 EloSocial - Todos os direitos reservados</p>
+    <p>Email: contato@elosocial.org | Tel: (11) 98765-4321</p>
+    <p>Rua das Flores, 120 - São Paulo/SP</p>
+  </footer>
+
+
