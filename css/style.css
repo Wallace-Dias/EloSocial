@@ -702,6 +702,7 @@ footer p {
   line-height: 1;
   background: linear-gradient(135deg, #fff, #f0f0f0);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -1755,5 +1756,4 @@ fieldset { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
     html { font-size: 110%; }
 }
 @media (prefers-color-scheme: dark) {
-    :root { }
 }
