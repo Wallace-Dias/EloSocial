@@ -177,6 +177,22 @@ header {
   z-index: 1000;
 }
 
+/* Skip link (pular para conteúdo principal) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: -999px;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  z-index: 2001;
+}
+
 /* Logo / Título */
 header h1 a {
   text-decoration: none;
@@ -228,6 +244,10 @@ nav ul li .submenu {
 nav ul li:hover .submenu {
   display: block;
 }
+/* Acessibilidade: mostrar submenu quando o item recebe foco */
+nav ul li:focus-within .submenu {
+  display: block;
+}
 nav ul li .submenu a {
   color: #fff;
   padding: 10px 18px;
@@ -246,6 +266,31 @@ button:disabled, .primario:disabled {
   box-shadow: none;
   opacity: 0.7;
 }
+
+/* Foco visível para todos elementos focáveis */
+*:focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+/* Controles de acessibilidade no cabeçalho */
+.acessibilidade-controles {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 12px;
+}
+.toolbar-btn {
+  background: #fff;
+  color: var(--cor-primaria);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.toolbar-btn:hover { background: #f3f3f3; }
+.toolbar-btn[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--cor-secundaria); }
 
 /* ============================================================
    BOTÕES DE AÇÃO PRINCIPAIS (CLASSE .primario)
@@ -1755,5 +1800,43 @@ fieldset { box-shadow: var(--shadow-sm, 0 2px 4px rgba(0,0,0,0.05)); }
     .container { max-width: 1320px; margin: 0 auto; }
     html { font-size: 110%; }
 }
+/* ============================
+   DARK MODE E ALTO CONTRASTE
+============================ */
+/* Tema escuro (aplicar classe .theme-dark em <html> ou <body>) */
+.theme-dark {
+  --cor-neutra-clara: #1e1f22;
+  --cor-neutra-media: #3a3d40;
+  --cor-neutra-escura: #f1f1f1;
+  --cor-rodape: #151015;
+  background-color: var(--cor-neutra-clara);
+  color: var(--cor-neutra-escura);
+}
+.theme-dark header { background-color: #5a1730; }
+.theme-dark footer { background-color: #120a12; }
+.theme-dark .card,
+.theme-dark .filtro-projetos,
+.theme-dark .parceiros,
+.theme-dark .depoimento-card,
+.theme-dark form,
+.theme-dark .project-card,
+.theme-dark .projeto-card { background: #2a2d30; color: var(--cor-neutra-escura); }
+.theme-dark nav ul li .submenu { background: #5a1730; }
+
+/* Alto contraste (aplicar classe .high-contrast em <html> ou <body>) */
+.high-contrast {
+  --cor-primaria: #000000;
+  --cor-secundaria: #000000;
+  --cor-terciaria: #ffbf00;
+  --cor-neutra-escura: #000000;
+  --cor-neutra-clara: #ffffff;
+}
+.high-contrast header,
+.high-contrast .primario,
+.high-contrast .btn-destaque { background: #000 !important; color: #fff !important; }
+.high-contrast a { color: #0000ee; }
+.high-contrast *:focus-visible { outline-color: #ffff00; }
+
 @media (prefers-color-scheme: dark) {
+  /* Mantida para navegadores que preferem escuro por padrão */
 }

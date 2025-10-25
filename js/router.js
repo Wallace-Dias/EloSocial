@@ -93,6 +93,10 @@ export class Router {
             if (route.script) {
                 route.script();
             }
+            // Inicialização global (acessibilidade, temas, etc.)
+            if (typeof window !== 'undefined' && typeof window.__initA11y === 'function') {
+                try { window.__initA11y(); } catch (e) { console.warn('Falha ao inicializar acessibilidade', e); }
+            }
             
             // Restaurar estado do menu mobile
             const menuToggle = document.getElementById('menu-toggle');

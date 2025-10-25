@@ -1,0 +1,25 @@
+{
+  "name": "elosocial",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SPA estática com acessibilidade, roteamento por hash e build de produção",
+  "scripts": {
+    "prebuild": "rimraf dist && mkdir -p dist/css dist/js dist/templates dist/img",
+    "build:css": "cleancss -O2 --with-rebase -o dist/css/style.min.css css/style.css",
+    "build:js": "terser js/*.js -o dist/js/app.min.js -c -m",
+    "build:html": "html-minifier-terser --input-dir templates --output-dir dist/templates --collapse-whitespace --remove-comments --minify-css true --minify-js true",
+    "build:index": "html-minifier-terser --input-dir . --output-dir dist --collapse-whitespace --remove-comments --minify-css true --minify-js true --file-ext html --include-auto-generated-tags",
+    "build:images": "imagemin img/* --out-dir=dist/img",
+    "build": "npm run prebuild && npm run build:css && npm run build:js && npm run build:html && npm run build:index && npm run build:images"
+  },
+  "devDependencies": {
+    "cleancss-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "imagemin": "^9.0.0",
+    "imagemin-cli": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "rimraf": "^5.0.7",
+    "terser": "^5.36.0"
+  }
+}

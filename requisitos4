@@ -1,0 +1,46 @@
+Entrega IV – Versionamento, Acessibilidade e Deploy
+Página 1 de 2
+Orientações da Entrega
+
+Objetivos
+
+Esta entrega final consolida todo o projeto através da implementação de práticas profissionais de versionamento, acessibilidade e deploy em ambiente de produção. Os alunos devem apresentar conhecimento de Git/GitHub, conformidade com WCAG 2.1, otimização para produção e documentação técnica.
+
+Especificações Técnicas Obrigatórias
+
+•
+Controle de Versão com Git/GitHub
+Implementar estratégia de branching GitFlow;
+Criar histórico de commits semântico e organizado;
+Desenvolver sistema de releases com versionamento semântico.
+
+•
+Acessibilidade (WCAG 2.1 Nível AA)
+Implementar navegação por teclado em todos os componentes;
+Criar estrutura semântica adequada;
+Garantir contraste mínimo de 4.5:1 para texto normal;
+Implementar suporte completo para leitores de tela;
+Criar versão de alto contraste e modo escuro acessível.
+
+•
+Otimização para Produção
+Implementar minificação de CSS, JavaScript e HTML;
+Configurar compressão de imagens.
+
+O que deverá ser entregue:
+
+1
+Repositório GitHub Completo
+Código fonte versionado;
+Histórico de commits organizado;
+Pull Requests documentados;
+Issues e milestones utilizados.
+
+2
+Documentação Técnica
+README profissional completo.
+
+3
+Forma de Entrega
+Link PÚBLICO do repositório do GitHub com os arquivos do projeto e arquivo Read na raiz do repositório com conteúdo completo do projeto desenvolvido até aqui, equivalente ao da entrega anterior, acrescentando os entregáveis desta fase.
+

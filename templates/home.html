@@ -1,6 +1,7 @@
 <!-- TEMPLATE SPA: apenas conteúdo, sem <html>, <head>, <body> -->
   <!--        CABEÇALHO / MENU      -->
   <!-- ============================ -->
+  <a href="#conteudo" class="skip-link">Pular para conteúdo principal</a>
   <header>
     <!-- LOGO / TÍTULO PRINCIPAL -->
     <h1 style="display: flex; align-items: center; gap: 16px;">
@@ -10,10 +11,10 @@
 
     <!-- MENU HAMBÚRGUER (para mobile) -->
     <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-hamburguer">&#9776;</label>
+    <label for="menu-toggle" class="menu-hamburguer" role="button" tabindex="0" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">&#9776;</label>
 
     <!-- NAVEGAÇÃO PRINCIPAL -->
-    <nav>
+    <nav id="menu-principal" role="navigation" aria-label="Navegação principal">
       <ul>
         <li><a href="#/">Início</a></li>
         <li>
@@ -29,6 +30,11 @@
         <li><a href="#/cadastro">Cadastro</a></li>
       </ul>
     </nav>
+
+    <div class="acessibilidade-controles" aria-label="Acessibilidade">
+      <button type="button" class="toolbar-btn toggle-theme" aria-pressed="false" aria-label="Alternar modo escuro">Modo escuro</button>
+      <button type="button" class="toolbar-btn toggle-contrast" aria-pressed="false" aria-label="Ativar alto contraste">Alto contraste</button>
+    </div>
   </header>
 
   <!-- ============================ -->
@@ -61,7 +67,7 @@
   <!-- ============================ -->
   <!--     SEÇÃO DE CARDS INICIAIS   -->
   <!-- ============================ -->
-  <main>
+  <main id="conteudo" role="main">
     <!-- SEÇÃO SOBRE -->
     <!-- Alerta informativo para protótipo -->
     <div class="alerta info" style="max-width:600px;margin:24px auto;">Atenção: Este site é um protótipo acadêmico. Dados fictícios.</div>
@@ -146,7 +152,7 @@
           <h3>Sementes do Amanhã</h3>
           <p>Educação ambiental para crianças em comunidades carentes.</p>
           <!-- Botão estilizado levando para projetos -->
-          <a href="projetos.html" class="primario">Saiba Mais</a>
+          <a href="#/projetos" class="primario">Saiba Mais</a>
         </div>
 
         <!-- ONG 2 -->
@@ -154,7 +160,7 @@
           <h3>Laços de Esperança</h3>
           <p>Apoio a famílias em vulnerabilidade com cestas básicas e oficinas.</p>
           <!-- Botão estilizado levando para projetos -->
-          <a href="projetos.html" class="primario">Saiba Mais</a>
+          <a href="#/projetos" class="primario">Saiba Mais</a>
         </div>
 
         <!-- ONG 3 -->
@@ -162,7 +168,7 @@
           <h3>Tech para Todos</h3>
           <p>Inclusão digital com cursos de informática e programação.</p>
           <!-- Botão estilizado levando para projetos -->
-          <a href="projetos.html" class="primario">Saiba Mais</a>
+          <a href="#/projetos" class="primario">Saiba Mais</a>
         </div>
       </div>
     </section>

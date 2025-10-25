@@ -66,8 +66,32 @@ const router = new Router(routes);
 function initializeModals() {
     // Código do modal já existente
     if (!sessionStorage.getItem('modalVisto')) {
-        document.getElementById('modal-exemplo').style.display = 'flex';
+        const modal = document.getElementById('modal-exemplo');
+        modal.style.display = 'flex';
         sessionStorage.setItem('modalVisto', '1');
+
+        // Acessibilidade: trap de foco e fechar com ESC
+        const focusable = modal.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        first && first.focus();
+        const handleKey = (e) => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                document.removeEventListener('keydown', handleKey);
+                return;
+            }
+            if (e.key === 'Tab') {
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        };
+        document.addEventListener('keydown', handleKey);
     }
 }
 
@@ -290,3 +314,59 @@ document.querySelectorAll('.filtro-tags .tag').forEach(tag => {
         }
     });
 });
+
+// ==============================
+// Acessibilidade e Preferências
+// ==============================
+function initAccessibility() {
+    const root = document.documentElement;
+    // Restaurar preferências salvas
+    const savedTheme = localStorage.getItem('elosocial:theme') || 'light';
+    const savedContrast = localStorage.getItem('elosocial:contrast') === 'on';
+
+    root.classList.toggle('theme-dark', savedTheme === 'dark');
+    root.classList.toggle('high-contrast', !!savedContrast);
+
+    // Ajustar estado visual dos botões
+    document.querySelectorAll('.toggle-theme').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(savedTheme === 'dark'));
+        btn.textContent = savedTheme === 'dark' ? 'Modo claro' : 'Modo escuro';
+        btn.addEventListener('click', () => {
+            const isDark = root.classList.toggle('theme-dark');
+            localStorage.setItem('elosocial:theme', isDark ? 'dark' : 'light');
+            document.querySelectorAll('.toggle-theme').forEach(b => {
+                b.setAttribute('aria-pressed', String(isDark));
+                b.textContent = isDark ? 'Modo claro' : 'Modo escuro';
+            });
+        });
+    });
+
+    document.querySelectorAll('.toggle-contrast').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(!!savedContrast));
+        btn.addEventListener('click', () => {
+            const active = root.classList.toggle('high-contrast');
+            localStorage.setItem('elosocial:contrast', active ? 'on' : 'off');
+            document.querySelectorAll('.toggle-contrast').forEach(b => b.setAttribute('aria-pressed', String(active)));
+        });
+    });
+
+    // Menu hambúrguer: suporte a teclado e ARIA expanded
+    const checkbox = document.getElementById('menu-toggle');
+    const label = document.querySelector('label.menu-hamburguer');
+    if (checkbox && label) {
+        const syncExpanded = () => label.setAttribute('aria-expanded', String(checkbox.checked));
+        checkbox.addEventListener('change', syncExpanded);
+        syncExpanded();
+
+        label.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                checkbox.checked = !checkbox.checked;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        });
+    }
+}
+
+// Expor inicializador global para o roteador chamar após cada troca de rota
+window.__initA11y = initAccessibility;
