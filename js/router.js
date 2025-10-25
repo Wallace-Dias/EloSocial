@@ -14,15 +14,9 @@ export class Router {
 
         // Inicialização e handling de hash
         document.addEventListener('DOMContentLoaded', () => {
-            // Se acessar diretamente /rota.html, converte para hash /rota
-            const directHtml = window.location.pathname.match(/^\/(\w+)\.html$/);
-            if (directHtml && this.routes['/' + directHtml[1]]) {
-                if (this.useHash) {
-                    // Mantém path atual e só ajusta o hash
-                    window.location.hash = `/${directHtml[1]}`;
-                } else {
-                    history.replaceState(null, '', '/' + directHtml[1]);
-                }
+            // Em hash mode, sempre garante um hash padrão
+            if (this.useHash && (!window.location.hash || window.location.hash === '#')) {
+                window.location.hash = '/';
             }
             this.handleRoute();
             this.setupNavigation();
@@ -36,7 +30,9 @@ export class Router {
             const link = e.target.closest('a');
             if (link && link.href.includes(window.location.origin)) {
                 e.preventDefault();
-                const path = this.normalizeRoute(link.pathname);
+                // Deriva a rota a partir do href (robusto a subcaminhos do GitHub Pages)
+                const href = link.getAttribute('href') || '';
+                const path = this.hrefToRoute(href);
                 if (path !== this.currentPage) {
                     if (this.useHash) {
                         window.location.hash = path; // Ex.: #/projetos
@@ -47,6 +43,22 @@ export class Router {
                 }
             }
         });
+    }
+
+    hrefToRoute(href) {
+        // Links absolutos com hash já rotas
+        if (href.startsWith('#/')) return href.slice(1);
+        // Home
+        if (href === '' || href === '/' || href === 'index.html' || href.endsWith('/index.html')) return '/';
+        // Arquivos .html -> /nome
+        if (href.endsWith('.html')) {
+            const file = href.split('/').pop();
+            const name = file.replace('.html','');
+            return name === 'index' ? '/' : `/${name}`;
+        }
+        // Caminhos simples -> prefixa com /
+        if (!href.startsWith('/')) return `/${href}`;
+        return href;
     }
 
     async handleRoute() {
