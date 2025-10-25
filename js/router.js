@@ -48,8 +48,10 @@ export class Router {
     hrefToRoute(href) {
         // Links absolutos com hash já rotas
         if (href.startsWith('#/')) return href.slice(1);
+        // Placeholder '#' não deve navegar
+        if (href === '#' || href === '') return this.currentPage || '/';
         // Home
-        if (href === '' || href === '/' || href === 'index.html' || href.endsWith('/index.html')) return '/';
+        if (href === '/' || href === 'index.html' || href.endsWith('/index.html')) return '/';
         // Arquivos .html -> /nome
         if (href.endsWith('.html')) {
             const file = href.split('/').pop();
