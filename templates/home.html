@@ -56,11 +56,7 @@
 
     <!-- IMAGEM PRINCIPAL DA HERO -->
     <div class="hero-image">
-      <picture>
-        <source srcset="img/inicio.webp" type="image/webp">
-        <source srcset="img/inicio.png" type="image/png">
-        <img src="img/inicio.png" alt="Voluntários ajudando em um projeto social" loading="lazy">
-      </picture>
+      <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop&crop=center&auto=format&q=80" alt="Voluntários ajudando em um projeto social" loading="lazy">
     </div>
   </section>
 
@@ -71,7 +67,12 @@
     <!-- SEÇÃO SOBRE -->
     <!-- Alerta informativo para protótipo -->
     <div class="alerta info" style="max-width:600px;margin:24px auto;">Atenção: Este site é um protótipo acadêmico. Dados fictícios.</div>
-    <section class="sobre" style="margin-bottom: 48px;">
+    <section class="sobre" style="margin-bottom: 48px; background: linear-gradient(135deg, rgba(251,177,60,0.05) 0%, rgba(201,76,111,0.05) 100%); padding: 48px 32px; border-radius: 16px; position: relative;">
+      <div style="position: absolute; top: 20px; left: 20px; opacity: 0.1;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 10L50 30L70 30L55 45L60 65L40 55L20 65L25 45L10 30L30 30L40 10Z" fill="#7b1e3d"/>
+        </svg>
+      </div>
       <h2>Sobre a EloSocial</h2>
       <p>
         A EloSocial nasceu do desejo de aproximar pessoas, organizações e causas sociais. Nossa plataforma conecta voluntários, ONGs e doadores, promovendo a colaboração e o impacto positivo em comunidades de todo o Brasil. Acreditamos que pequenas ações, quando somadas, transformam realidades e constroem um futuro mais justo e solidário.
@@ -85,35 +86,54 @@
 
       <!-- CARD 1: MISSÃO -->
       <div class="card">
-        <h2>🎯 Missão</h2>
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" fill="#7b1e3d" opacity="0.1"/>
+            <path d="M24 8l4.95 10.05L40 20l-8.025 7.825L34 40l-10-5.25L14 40l2.025-12.175L8 20l11.05-1.95L24 8z" fill="#7b1e3d"/>
+          </svg>
+          <h2 style="margin: 0; color: var(--cor-primaria);">Missão</h2>
+        </div>
         <p>
           Promover a colaboração entre ONGs, voluntários e doadores para gerar impacto positivo
           em comunidades de todo o Brasil.
         </p>
-        <!-- Botão estilizado -->
-  <a href="#/projetos" class="primario">Saiba Mais</a>
+        <a href="#/projetos" class="primario">Saiba Mais</a>
       </div>
 
       <!-- CARD 2: O QUE FAZEMOS -->
       <div class="card">
-        <h2>💡 O que fazemos</h2>
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" fill="#c94c6f" opacity="0.1"/>
+            <path d="M24 12c6.627 0 12 5.373 12 12s-5.373 12-12 12-12-5.373-12-12 5.373-12 12-12z" fill="none" stroke="#c94c6f" stroke-width="2"/>
+            <path d="M20 20h8m-8 4h8m-8 4h6" stroke="#c94c6f" stroke-width="2"/>
+            <circle cx="24" cy="8" r="2" fill="#fbb13c"/>
+          </svg>
+          <h2 style="margin: 0; color: var(--cor-primaria);">O que fazemos</h2>
+        </div>
         <p>
           Divulgamos projetos sociais, conectamos pessoas a iniciativas relevantes
           e fornecemos ferramentas para acompanhar resultados.
         </p>
-        <!-- Botão estilizado -->
-  <a href="#/projetos" class="primario">Ver Projetos</a>
+        <a href="#/projetos" class="primario">Ver Projetos</a>
       </div>
 
       <!-- CARD 3: COMO AJUDAR -->
       <div class="card">
-        <h2>🤝 Como ajudar</h2>
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" fill="#fbb13c" opacity="0.1"/>
+            <path d="M16 20c0-4.418 3.582-8 8-8s8 3.582 8 8c0 2.5-1.5 4.5-3 6l-5 8-5-8c-1.5-1.5-3-3.5-3-6z" fill="#fbb13c"/>
+            <circle cx="24" cy="20" r="3" fill="#7b1e3d"/>
+            <path d="M12 32h6m6 0h6m6 0h6" stroke="#c94c6f" stroke-width="2"/>
+          </svg>
+          <h2 style="margin: 0; color: var(--cor-primaria);">Como ajudar</h2>
+        </div>
         <p>
           Você pode se tornar voluntário, fazer doações ou apoiar com conhecimento e recursos.
           Cada ação faz diferença.
         </p>
-        <!-- Botão estilizado -->
-  <a href="#/cadastro" class="primario">Participe</a>
+        <a href="#/cadastro" class="primario">Participe</a>
       </div>
     </div>
 
@@ -192,21 +212,43 @@
     <!-- ============================ -->
     <section class="depoimentos" style="margin: 56px 0;">
       <h2>Depoimentos</h2>
-      <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
-        “A EloSocial me ajudou a encontrar um projeto incrível de educação ambiental. Hoje sou voluntário e vejo o impacto de perto!”<br>
-        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Rafael, Recife/PE</span>
+      <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555; position: relative;">
+        <div style="display: flex; align-items: flex-start; gap: 16px;">
+          <img src="https://i.pravatar.cc/60?img=8" alt="Rafael" style="width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;">
+          <div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px; opacity: 0.3;">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" fill="#7b1e3d"/>
+            </svg>
+            <p style="margin: 0;">"A EloSocial me ajudou a encontrar um projeto incrível de educação ambiental. Hoje sou voluntário e vejo o impacto de perto!"</p>
+            <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Rafael, Recife/PE</span>
+          </div>
+        </div>
       </blockquote>
       <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
-        “Consegui meu primeiro emprego na área de TI após participar do Tech para Todos. Hoje ajudo outras pessoas a aprenderem também.”<br>
-        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Ana Luiza, BH</span>
+        <div style="display: flex; align-items: flex-start; gap: 16px;">
+          <img src="https://i.pravatar.cc/60?img=25" alt="Ana Luiza" style="width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;">
+          <div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px; opacity: 0.3;">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" fill="#7b1e3d"/>
+            </svg>
+            <p style="margin: 0;">"Consegui meu primeiro emprego na área de TI após participar do Tech para Todos. Hoje ajudo outras pessoas a aprenderem também."</p>
+            <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Ana Luiza, BH</span>
+          </div>
+        </div>
       </blockquote>
       <blockquote style="max-width: 700px; margin: 0 auto 32px; background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; font-style: italic; color: #555;">
-        “A plataforma é fácil de usar e me conectou rapidamente a uma ONG que precisava de apoio em comunicação.”<br>
-        <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Camila, São Paulo/SP</span>
+        <div style="display: flex; align-items: flex-start; gap: 16px;">
+          <img src="https://i.pravatar.cc/60?img=42" alt="Camila" style="width: 50px; height: 50px; border-radius: 50%; flex-shrink: 0;">
+          <div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px; opacity: 0.3;">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" fill="#7b1e3d"/>
+            </svg>
+            <p style="margin: 0;">"A plataforma é fácil de usar e me conectou rapidamente a uma ONG que precisava de apoio em comunicação."</p>
+            <span style="display:block; margin-top: 12px; font-weight: bold; color: #7b1e3d;">— Camila, São Paulo/SP</span>
+          </div>
+        </div>
       </blockquote>
-    </section>
-
-    <!-- ============================ -->
+    </section>    <!-- ============================ -->
     <!--        SEÇÃO CONTATO         -->
     <!-- ============================ -->
     <!-- MODAL DE EXEMPLO (apenas visual, pode ser removido se não for requisito) -->
