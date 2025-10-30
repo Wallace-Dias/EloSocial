@@ -59,6 +59,40 @@ O resultado estará na pasta `dist/` — basta publicar esse conteúdo no Pages 
 - Scripts de build e dependências no `package.json`.
 - Versionamento organizado: GitFlow, Conventional Commits e changelog.
 
+## Enriquecimento Visual
+
+Este projeto implementa uma estratégia de enriquecimento visual que mantém a identidade da marca e adiciona profundidade ao design:
+
+### � Estratégia adotada:
+- **Mantidos originais:** logo personalizado (`icon.png`) e imagens dos parceiros
+- **Adicionados:** ícones SVG, avatars para depoimentos, elementos visuais e gradientes sutis
+- **Imagens externas:** apenas para projetos e hero sections, usando Unsplash otimizado
+
+### ✨ Melhorias implementadas:
+- **Cards principais:** ícones SVG coloridos para Missão, O que fazemos e Como ajudar
+- **Métricas de impacto:** ícones ilustrativos para cada estatística (projetos, pessoas, voluntários, cidades)
+- **Depoimentos:** avatars do Pravatar e ícones de aspas para maior humanização
+- **Seção Sobre:** background sutil com gradiente e elemento decorativo
+- **Filtros de projetos:** ícones SVG nos labels e emojis nas opções para melhor UX
+
+### 📊 Recursos visuais externos:
+- **Unsplash Images** para fotos dos projetos com parâmetros otimizados (`w=400&h=300&q=80`)
+- **Pravatar** apenas para avatars dos depoimentos (IDs: 8, 25, 42)
+- **SVG inline** para todos os ícones decorativos e funcionais
+
+### ✅ Benefícios alcançados:
+- **Profundidade visual** sem comprometer a identidade existente
+- **Melhor UX** com ícones intuitivos nos filtros e formulários  
+- **Humanização** com avatars reais nos depoimentos
+- **Hierarquia clara** com elementos visuais que guiam o olhar
+- **Performance mantida** com SVGs leves e CDNs otimizados
+
+### 🛠️ Elementos preservados:
+- Logo original `icon.png` em todas as páginas
+- Imagens dos parceiros (`parceiro1-4.png`) com seus logos originais
+- Paleta de cores e tipografia da marca
+- Estrutura e navegação existentes
+
 ## Dúvidas, ideias ou problemas?
 
 Abra uma issue, mande um pull request ou entre em contato pelo e-mail do rodapé. O EloSocial é feito para crescer junto com quem acredita no poder da colaboração!
